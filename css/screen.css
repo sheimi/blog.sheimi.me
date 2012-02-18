@@ -105,6 +105,7 @@ ul.posts {
   color: #aaa;
   text-decoration: none;
   margin-left: 1em;
+  font-size: 13px;
 }
 
 .site .title a.extra:hover {
@@ -199,3 +200,38 @@ float: right;
   #related h2 {
     margin-bottom: 1em;
   }
+
+/*******************
+ * about
+ *******************/
+
+
+div#about label {
+  display: block;
+  float: left;
+  margin-right: 20px;
+  width: 100px;
+}
+div#about ul {
+  list-style-type: none;
+  display: block;
+}
+ul#education {
+  float: left;
+  display: block;
+}
+ul#education span.time {
+  float: left;
+  width: 100px;
+  margin-right: 20px;
+}
+
+.clear {
+  clear: both;
+}
+div#about {
+  margin-bottom: 30px;
+}
+div#about a, div#about a:visited {
+  color: #8085C1;
+}
