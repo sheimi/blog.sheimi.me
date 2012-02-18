@@ -78,7 +78,7 @@ ul.posts {
 .site {
   font-size: 110%;
   text-align: justify;
-  width: 40em;
+  width: 45em;
   margin: 3em auto 2em auto;
   line-height: 1.5em;
 }
@@ -121,7 +121,7 @@ margin-top: 2em;
 overflow: hidden;
 }
 
-.site .footer .contact {
+.site .footer .contact, .copyleft {
   float: left;
   margin-right: 3em;
 }
@@ -135,6 +135,9 @@ overflow: hidden;
 margin-top: 1.1em;
 margin-right: -.2em;
 float: right;
+}
+.site .footer .rss img {
+  height: 5.5em;
 }
 
 .site .footer .rss img {
