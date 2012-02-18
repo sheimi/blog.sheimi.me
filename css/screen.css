@@ -34,7 +34,7 @@ p {
   margin: 1em 0;
 }
 
-a {
+a , a:visited {
   color: #00a;
 }
 
@@ -42,9 +42,6 @@ a:hover {
   color: black;
 }
 
-a:visited {
-  color: #a0a;
-}
 
 table {
   font-size: inherit;
@@ -129,10 +126,7 @@ overflow: hidden;
   margin-right: 3em;
 }
 
-.site .footer a {
-  color: #8085C1;
-}
-.site .footer a:visited {
+.site .footer a , .site .footer a:visited {
   color: #8085C1;
 }
   
@@ -215,6 +209,7 @@ div#about label {
 div#about ul {
   list-style-type: none;
   display: block;
+  padding-left: 20px;
 }
 ul#education {
   float: left;
@@ -234,4 +229,9 @@ div#about {
 }
 div#about a, div#about a:visited {
   color: #8085C1;
+}
+
+div.section {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
