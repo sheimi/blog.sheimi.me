@@ -238,3 +238,8 @@ div.section {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+div#disqus_thread {
+  margin-top: 30px;
+}
+
