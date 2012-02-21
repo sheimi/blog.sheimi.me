@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  博客迁移到github上了
+category: blog
 ---
 
 {{ page.title }}

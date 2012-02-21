@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 一些事，一些思考
+category: blog
 ---
 
 {{ page.title }}
