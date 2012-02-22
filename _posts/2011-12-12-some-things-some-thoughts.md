@@ -2,6 +2,10 @@
 layout: post
 title: 一些事，一些思考
 category: blog
+tags:
+  - thinking
+  - school life
+  - study
 ---
 
 {{ page.title }}

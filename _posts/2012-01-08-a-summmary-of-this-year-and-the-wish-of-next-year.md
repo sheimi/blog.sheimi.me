@@ -2,6 +2,10 @@
 layout: post
 title: 今年的小结，明年的愿望
 category: blog
+tags:
+  - thinking
+  - study
+  - summary
 ---
 
 {{ page.title }}
