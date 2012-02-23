@@ -33,7 +33,7 @@ public class HelloJNI {
   public static native String showMessage(String msg);
 
   public static void main(String [] args) {
-    String msg = Test.showMessage("Hello JNI");
+    String msg = HelloJNI.showMessage("Hello JNI");
     System.out.println("Here is in Java");
     System.out.println(msg);
   }
