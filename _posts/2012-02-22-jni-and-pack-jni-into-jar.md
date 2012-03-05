@@ -1,4 +1,4 @@
----
+y--
 layout: post
 title:  第一次使用jni，把jni打包到jar中 
 category: blog
