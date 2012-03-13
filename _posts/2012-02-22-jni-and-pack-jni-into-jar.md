@@ -25,7 +25,7 @@ public class HelloJNI {
   static {
     try {
       System.loadLibrary("hellojni");
-    } catch (Excption e) {     // I am a little indolent
+    } catch (Exception e) {     // I am a little indolent
       e.printStackTrace();
     }
   }
@@ -50,7 +50,7 @@ public class HelloJNI {
 #include "stdio.h"
 #include "hellojni.h"
 
-NJIEXPORT jstring JNICALL
+JNIEXPORT jstring JNICALL
 Java_HelloJNI_showMessage(JNIEnv * env, jclass classObject, jstring valueObject) {
   fprintf(stdout, "Here is C output\n");
   return valueObject;
