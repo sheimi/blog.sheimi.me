@@ -1,0 +1,76 @@
+* {
+  font-family: arial, sans-serif;
+}
+body {
+  margin: 0 auto;
+  width: 800px;
+  padding: 10px;
+  /*box-shadow: 0 0 20px #888, inset 0 0 3px #eee;*/
+}
+a, a:visited {
+ color: #00E;
+}
+ul {
+  list-style: none;
+  padding-left: 20px;
+}
+
+li {
+  padding: 3px;
+}
+
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.clear: {
+  clear: both;
+}
+
+.title {
+  text-align: center;
+}
+h1, h2, h3{
+  color: #D67813;
+}
+h2 {
+  border-bottom: solid 1px #D67813;
+}
+h3 {
+  font-size: 18px;
+}
+table {
+  padding-left: 20px;
+  font-size: 14px;
+}
+table td {
+  padding: 5px;
+  border-bottom: 1px solid rgba(200, 120, 20, 0.25); 
+}
+table tr:first-child td {
+  border-top: 1px solid rgba(200, 120, 20, 0.25);
+}
+
+table tr td:first-child {
+  width: 120px;
+}
+table tr td:first-child + td {
+  width: 100px
+}
+
+
+
+.contact, .contact a, .contact a:visited {
+  font-size: 13px;
+  color: #777;
+}
+.contact li {
+  padding: 1px;
+}
+span.contact-label {
+  width: 80px;
+  float: left;
+}
+
