@@ -246,3 +246,7 @@ div#disqus_thread {
 .plus {
   float: right;
 }
+.more-info {
+  margin-bottom: 5px;
+  font-size: 13px;
+}

@@ -7,8 +7,11 @@ body {
   padding: 30px;
   box-shadow: 0 0 20px #888, inset 0 0 3px #eee;
 }
-a, a:visited {
- color: #00E;
+a , a:visited {
+  color: #8085C1;
+}
+a:hover {
+  color: #00a;
 }
 ul {
   list-style: none;
@@ -25,7 +28,7 @@ li {
 .right {
   float: right;
 }
-.clear: {
+.clear {
   clear: both;
 }
 
@@ -33,7 +36,8 @@ li {
   text-align: center;
 }
 h1, h2, h3{
-  color: #D67813;
+  /*color: #D67813;*/
+  color: rgba(200, 100, 10, 0.65);
 }
 h1 {
   font-size: 28px;
@@ -64,9 +68,7 @@ table tr td:first-child + td {
   width: 100px
 }
 
-
-
-.contact, .contact a, .contact a:visited {
+.contact {
   font-size: 13px;
   color: #777;
 }
@@ -78,3 +80,12 @@ span.contact-label {
   float: left;
 }
 
+.footer.update {
+  font-size: 10px; 
+  color: #777;
+  margin-top: 20px;
+}
+
+.other.left {
+  margin-left: 70px;
+}

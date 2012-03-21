@@ -1,15 +1,18 @@
 ---
 layout: resume
+title: Rizhen Zhang's Resume
+update: 2012/3/21
 ---
 
-<div class="contact right">
-  * %(contact-label)Email:% "sheimi.zhang@gmail.com":sheimi.zhang@gmail.com
-  * %(contact-label)Github:% "github.com/sheimi":https://github.com/sheimi
-  * %(contact-label)Blog:% "blog.sheimi.me":http://blog.sheimi.me
-  * %(contact-label)Twitter:% "@sheimi_nju":http://twitter.com/#!/sheimi_nju
-</div>
+h1(title). {{page.title}} 
 
-h1(title). Rizhen Zhang 
+h2. Biography
+
+I'm an undergraduate student (senior year) in "Software Institute":http://software.nju.edu.cn of "Nanjing University":http://www.nju.edu.cn . 
+
+My instructor is "Tongwei Ren":http://software.nju.edu.cn/rentw. I am now a member of our team to do some research on "media cloud", our innovation project. 
+
+During the past 2.5 academic years, I have maintained 2/219 GPA grade level ranking.
 
 h2. Educational Background
 
@@ -27,6 +30,24 @@ h2. Awards and Honors
 * 2011 Samsung Scholarship 
 * 2010 National Scholarship
 
+h2. Interest
+
+h3. Academic Interest
+
+* Distributed computing, Cloud computing 
+* Search Engine 
+* Data Mining
+* Machine Learning
+
+h3. Personal Hobbies
+
+* Enjoy Reading
+* Love open source and the spirit of sharing
+* Use Linux and appreciate it's philosophy: KISS 
+* Like coding and solving problems
+* Love python and c
+* Appreciate functional and structured programming paradigm
+
 h2. Internship & Employment
 
 * None
@@ -40,7 +61,23 @@ h3. Research
 h3. Software App
 
 |2010/04 - 2010/05| Blackjack | A Java Swing GUI game, My First App (^ _ ^)<br>Third Prize of EL Programming Contest of Software Institute|
-|2010/09 - 2010/11| Danger KO | A Danger inform app on android<br>Prize for Excellence in an Android App Contest held by Google|
-|2011/03 - 2011/06| Oedu | A education communication system aimed to make it easier to communicate between teachers and students<br>B/S, Django+Tornado+Nginx as server-side<br>Use comet model to enable instance messaging<br/> Use Ngnix to speed up transmission of large files|
-|2012/03 - 2012/03| Online-Shop | A E-Commerce System, Web Homework<br>based on Flask Framwork, Bootstrap|
+|2010/09 - 2010/11| "Danger KO":https://github.com/sheimi/danger_ko | A Danger inform app on android<br>Prize for Excellence in an Android App Contest held by Google|
+|2011/03 - 2011/06| "Oedu":https://github.com/sheimi/oedu | A education communication system aimed to make it easier to communicate between teachers and students<br>B/S, Django+Tornado+Nginx as server-side<br>Use comet model to enable instance messaging<br/> Use Ngnix to speed up transmission of large files|
+|2012/03 - 2012/03| "Online-Shop":https://github.com/sheimi/online-shop | A E-Commerce System, Web Homework<br>based on Flask Framework, Bootstrap|
 
+h2. Other Information
+
+*(left contact) Address:
+  ** Room 310, Dorm 5
+  ** Nanjing University, Nanjing
+  ** China, 210093
+*(left other contact) Tel: 
+  ** +86 15298388031
+*(left other contact)  
+  ** %(contact-label)Email:% "sheimi.zhang@gmail.com":sheimi.zhang@gmail.com
+  ** %(contact-label)Github:% "github.com/sheimi":https://github.com/sheimi
+  ** %(contact-label)Blog:% "blog.sheimi.me":http://blog.sheimi.me
+  ** %(contact-label)Twitter:% "@sheimi_nju":http://twitter.com/#!/sheimi_nju
+
+
+<div class="clear"></div>
