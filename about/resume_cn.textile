@@ -1,0 +1,75 @@
+---
+layout: resume
+title: 张日臻的简历
+update: 2012/3/23
+---
+
+h1(title). {{page.title}} 
+
+h2. 教育背景
+
+* 2009/09 -  "南京大学":http://www.nju.edu.cn "软件学院":http://www.nju.edu.cn, 大三，本科生，GPA：4.45, 2/250(大概)
+
+h2. 专业技能
+
+* 能够使用 Python, C, Java, C++ 等编程语言
+* 熟悉 GNU/Linux 和 Mac OS
+* 了解 hadoop, pig, hbase, zookeeper
+* 熟悉使用 HTML, Javascript, CSS 和一些框架，如Django, bottle, Flask进行web开发
+
+h2. 奖项
+
+* 2011 三星企业奖学金
+* 2010 国家奖学金
+
+h2. 兴趣
+
+h3. 学术兴趣
+
+* 分布式计算，云计算
+* 搜索技术
+* 数据挖掘
+* 机器学习
+
+h3. 个人爱好
+
+* 喜欢读书
+* 喜欢开源的东西和分享的精神
+* 喜欢使用Linux，喜欢Linux/Unix的设计哲学: KISS 
+* 喜欢写程序，解决问题
+* 喜欢 c 和 python
+* 喜欢结构化编程和函数是编程范式
+
+h2. 实习经历
+
+* 无
+
+h2. 项目
+
+h3. 研究性项目
+
+|2011/05 - 2013/05| Media Cloud | To apply cloud computing and storage on multimedia processing for research purpose<br>based on hadoop, hbase and pid|
+
+h3. 软件应用
+
+|2010/04 - 2010/05| Blackjack | A Java Swing GUI game, My First App (^ _ ^)<br>Third Prize of EL Programming Contest of Software Institute|
+|2010/09 - 2010/11| "Danger KO":https://github.com/sheimi/danger_ko | A Danger inform app on android<br>Prize for Excellence in an Android App Contest held by Google|
+|2011/03 - 2011/06| "Oedu":https://github.com/sheimi/oedu | A education communication system aimed to make it easier to communicate between teachers and students<br>B/S, Django+Tornado+Nginx as server-side<br>Use comet model to enable instance messaging<br/> Use Ngnix to speed up transmission of large files|
+|2012/03 - 2012/03| "Online-Shop":https://github.com/sheimi/online-shop | A E-Commerce System, Web Homework<br>based on Flask Framework, Bootstrap|
+
+h2. 其他信息
+
+*(left contact) 地址:
+  ** 江苏省，南京市，鼓楼区
+  ** 汉口路22号，南京大学
+  ** 南园5舍，310, 210093
+*(left other contact) 电话: 
+  ** 15298388031
+*(left other contact)  
+  ** %(contact-label)Email:% "sheimi.zhang@gmail.com":sheimi.zhang@gmail.com
+  ** %(contact-label)Github:% "github.com/sheimi":https://github.com/sheimi
+  ** %(contact-label)Blog:% "blog.sheimi.me":http://blog.sheimi.me
+  ** %(contact-label)Twitter:% "@sheimi_nju":http://twitter.com/#!/sheimi_nju
+
+
+<div class="clear"></div>
