@@ -48,7 +48,7 @@ h2. 项目
 
 h3. 研究性项目
 
-|2011/05 - 2013/05| Media Cloud | To apply cloud computing and storage on multimedia processing for research purpose<br>based on hadoop, hbase and pid|
+|2011/05 - 2013/05| Media Cloud | To apply cloud computing and storage on multimedia processing for research purpose<br>based on hadoop, hbase and pig|
 
 h3. 软件应用
 
