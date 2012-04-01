@@ -2,6 +2,7 @@
 layout: post
 title:  The Note of Formal Language and Automata (1)
 category: note
+published: false
 tags:
   - formal language
   - the theory of computation
