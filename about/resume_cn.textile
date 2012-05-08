@@ -44,6 +44,8 @@ h2. 实习经历
 
 * 无
 
+<div class="page-break"></div>
+
 h2. 项目
 
 h3. 研究性项目

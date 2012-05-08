@@ -52,6 +52,8 @@ h2. Internship & Employment
 
 * None
 
+<div class="page-break"></div>
+
 h2. Projects
 
 h3. Research
