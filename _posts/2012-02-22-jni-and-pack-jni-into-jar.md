@@ -5,12 +5,9 @@ category: blog
 tags:
   - tech
   - study
+meta:
+  location: NJU
 ---
-
-{{ page.title }}
-================
-
-<p class="meta">22 Feb 2012 - At School</p>
 
 好长时间没有碰java了，因为不太喜欢java冗长的语法。但是java依然是工业界的一朵奇葩，我们的一个项目也不得不用到它。由于我们需要用到jni，并且要把jni打包道jar中，于是我今天首次尝试了一下jni的使用。Mark 一下，防止以后忘掉。
 
@@ -94,8 +91,6 @@ static {
 }
 
 {% endhighlight %}
-
-That's all ~~~ 
 
 
 

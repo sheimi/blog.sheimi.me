@@ -1,0 +1,36 @@
+---
+layout: default
+title: Sheimi's Hive 
+---
+
+<div id="home">
+  <h1>Blog Posts</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      {% if post.category == 'blog' %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  <h1>Homework</h1>
+  <ul class="posts">
+    <li><span>09 Apr 2012</span> &raquo; <a href="https://github.com/sheimi/chat-everywhere">Web Bonus: Chat-Everywhere</a></li>
+    <li><span>12 May 2012</span> &raquo; <a href="https://github.com/sheimi/online-shop">Web Homework: Online-Shop</a></li>
+    <li><span>05 May 2012</span> &raquo; <a href="https://github.com/sheimi/IPC-Homework">Linux Homework: IPC-Homework</a></li>
+    <li><span>26 Feb 2012</span> &raquo; <a href="https://github.com/sheimi/ac-demo">MIS Homework: Demo of Access Control</a></li>
+    <li><span>21 Feb 2012</span> &raquo; <a href="https://github.com/sheimi/Dessert-House">MIS Homework: Dessert House</a></li>
+    <li><span>18 Feb 2012</span> &raquo; <a href="https://github.com/sheimi/tiny-find">Linux Homework: Tiny-Find</a></li>
+    <li><span>06 Jul 2011</span> &raquo; <a href="https://github.com/sheimi/Swing-TextEditor">Software Construction Homework: Swing-TextEditor</a></li>
+    <li><span>10 Jun 2011</span> &raquo; <a href="https://github.com/sheimi/oedu">SE Homework: Oedu</a></li>
+  </ul>
+
+  <h1>Tiny Projects</h1>
+  <ul class="posts">
+    <li><span>25 Feb 2012</span> &raquo; <a href="https://github.com/sheimi/tiny-server">A Tiny Http Server: Tiny-Server</a></li>
+    <li><span>01 Feb 2012</span> &raquo; <a href="https://github.com/sheimi/word_log">To Log Words: Word_Log</a></li>
+    <li><span>01 Dec 2011</span> &raquo; <a href="https://github.com/sheimi/YuRss">A Chrome Extension: YuRss</a></li>
+    <li><span>10 Mar 2011</span> &raquo; <a href="https://github.com/sheimi/lostandfind">A PHP Website: Lost & Find (Desperated)</a></li>
+    <li><span>10 Oct 2010</span> &raquo; <a href="https://github.com/sheimi/danger_ko">A Android Application: Danger KO</a></li>
+  </ul>
+</div>

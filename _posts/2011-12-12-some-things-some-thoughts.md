@@ -2,16 +2,13 @@
 layout: post
 title: 一些事，一些思考
 category: blog
+meta:
+  location: NJU 
 tags:
   - thinking
   - school life
   - study
 ---
-
-{{ page.title }}
-================
-
-<p class="meta">12 Dec 2011 - At NJU</p>
 
 最近比较迷茫，看到了很多，也想了很多。虽然事情很多，还是把手头上的事情往后推了一下，想要把脑子里想的东西整理一下。
 

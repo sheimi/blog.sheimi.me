@@ -2,12 +2,9 @@
 layout: post
 title:  博客迁移到github上了
 category: blog
+meta:
+  location: NJU
 ---
-
-{{ page.title }}
-================
-
-<p class="meta">19 Feb 2012 - At School</p>
 
 这两天把自己的博客迁到github上了，并且把自己写的大部分的作业什么的放到了github上了。
 

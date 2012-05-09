@@ -4,33 +4,24 @@ title: Sheimi's Hive
 ---
 
 <div id="home">
-  <h1>Blog Posts</h1>
   <ul class="posts">
     {% for post in site.posts %}
-      {% if post.category == 'blog' %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-      {% endif %}
+    <li>
+      <article class="post">
+        <h1><a href="{{post.url}}">{{ post.title }}</a></h1>
+        <section class="meta">
+          <span class="date">{{post.date | date_to_string}}</span><span>At {{post.meta.location}}</span>
+        </section>
+        {{ post.content | truncatehtml: 300 }}
+        <span class="read-rest"><a href="{{post.url}}">Read the rest of this post »</a></span>
+      </article>
+      <hr>
+    </li>
     {% endfor %}
-  </ul>
-
-  <h1>Homework</h1>
-  <ul class="posts">
-    <li><span>09 Apr 2012</span> &raquo; <a href="https://github.com/sheimi/chat-everywhere">Web Bonus: Chat-Everywhere</a></li>
-    <li><span>12 May 2012</span> &raquo; <a href="https://github.com/sheimi/online-shop">Web Homework: Online-Shop</a></li>
-    <li><span>05 May 2012</span> &raquo; <a href="https://github.com/sheimi/IPC-Homework">Linux Homework: IPC-Homework</a></li>
-    <li><span>26 Feb 2012</span> &raquo; <a href="https://github.com/sheimi/ac-demo">MIS Homework: Demo of Access Control</a></li>
-    <li><span>21 Feb 2012</span> &raquo; <a href="https://github.com/sheimi/Dessert-House">MIS Homework: Dessert House</a></li>
-    <li><span>18 Feb 2012</span> &raquo; <a href="https://github.com/sheimi/tiny-find">Linux Homework: Tiny-Find</a></li>
-    <li><span>06 Jul 2011</span> &raquo; <a href="https://github.com/sheimi/Swing-TextEditor">Software Construction Homework: Swing-TextEditor</a></li>
-    <li><span>10 Jun 2011</span> &raquo; <a href="https://github.com/sheimi/oedu">SE Homework: Oedu</a></li>
-  </ul>
-
-  <h1>Tiny Projects</h1>
-  <ul class="posts">
-    <li><span>25 Feb 2012</span> &raquo; <a href="https://github.com/sheimi/tiny-server">A Tiny Http Server: Tiny-Server</a></li>
-    <li><span>01 Feb 2012</span> &raquo; <a href="https://github.com/sheimi/word_log">To Log Words: Word_Log</a></li>
-    <li><span>01 Dec 2011</span> &raquo; <a href="https://github.com/sheimi/YuRss">A Chrome Extension: YuRss</a></li>
-    <li><span>10 Mar 2011</span> &raquo; <a href="https://github.com/sheimi/lostandfind">A PHP Website: Lost & Find (Desperated)</a></li>
-    <li><span>10 Oct 2010</span> &raquo; <a href="https://github.com/sheimi/danger_ko">A Android Application: Danger KO</a></li>
+    <li class="archives">
+      <h1><a href="/archives">Archives</a></h1>
+      <hr>
+    </li>
   </ul>
 </div>
+<a href="http://github.com/sheimi"><img style="z-index: 1000;position: fixed; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/30f550e0d38ceb6ef5b81500c64d970b7fb0f028/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub"></a>

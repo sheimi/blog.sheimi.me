@@ -3,15 +3,12 @@ layout: post
 title:  The Note of Formal Language and Automata (1)
 category: note
 published: false
+meta:
+  location: NJU
 tags:
   - formal language
   - the theory of computation
 ---
-
-{{ page.title }}
-================
-
-<p class="meta">21 Feb 2012 - At School</p>
 
 Alphabets, Word, and Language
 

@@ -3,13 +3,12 @@ layout: post
 published: false
 title: 把人当做人
 category: life
+meta:
+  location: NJU
 tags:
   - life
   - homework
 ---
-
-{{ page.title }}
-================
 
 这是我的一门选修课“美与人生”的作业，就偷懒把它放到这里了。
 

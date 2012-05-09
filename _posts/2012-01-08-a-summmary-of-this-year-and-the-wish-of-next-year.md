@@ -2,16 +2,13 @@
 layout: post
 title: 今年的小结，明年的愿望
 category: blog
+meta:
+  location: Home
 tags:
   - thinking
   - study
   - summary
 ---
-
-{{ page.title }}
-================
-
-<p class="meta">08 Jan 2012 - At Home</p>
 
 时间过的真快，一下子大学已经过去一大半了。在大学的期间，经历的很多，也学到了很多。但是也有很多的时候感到迷茫，想着一门门的课程，总是感到力不从心；看着浩如烟海的专业书籍，一种种专业的技术，总是想要去看看，去试试，却总是没有静下心来去看一些书，去研究一些技术。
 
