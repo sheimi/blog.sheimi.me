@@ -1,21 +1,59 @@
----
-layout: default
-title: Sheimi's Hive 
----
-
-<section class="tag-cloud">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Sheimi's Hive</title>
+  <meta name="author" content="Sheimi" />
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+  <!-- Homepage CSS -->
+  <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+  <script src="/js/jquery-1.7.1.min.js"></script>
+  <script src="/js/modernizr.js"></script>
+</head>
+<body>
+<header class="header">
+  <h1><a href="/" title="Home">Sheimi's Hive</a></h1>
+  <div class="container sdw"></div>
+</header>
+<section class="container about">
+  <h4>
+    <span><a href="/about">About</a></span>
+    <span><a href="/archives">Archives</a></span>
+    <span><a href="/archives/tags.html">Tags</a></span>
+  </h4>
+  <hr>
+</section>
+<section class="container main-content">
+  <section class="site-main">
+  <section class="tag-cloud">
   <h2>Tag Cloud</h2>
   <div class="cloud">
     <a style="font-size: 1.5em" href="/tags.html#all">All</a>
-    {% tag_cloud font-size: 0.8 - 2em%}
+    <a style='font-size: 0.8em' href='/tags.html#complain'>complain</a>
+<a style='font-size: 0.8em' href='/tags.html#tech'>tech</a>
+<a style='font-size: 0.8em' href='/tags.html#summary'>summary</a>
+<a style='font-size: 1.6em' href='/tags.html#school life'>school life</a>
+<a style='font-size: 2.0em' href='/tags.html#study'>study</a>
+<a style='font-size: 1.6em' href='/tags.html#thinking'>thinking</a>
+<a style='font-size: 0.8em' href='/tags.html#software testing'>software testing</a>
+
   </div>
 </section>
 <section class="blog-posts">
   <h2>Posts of <span class="filter-result">All</span></h2>
   <ul class="posts">
-    {% for post in site.posts %}
-    <li data-tags="{% for tag in post.tags %}{{tag}} {%endfor%}all" data-hide="false"><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
+    
+    <li data-tags="school life complain software testing all" data-hide="false"><span>24 Feb 2012</span> &raquo; <a href="/blog/2012/02/24/a-little-complain-about-the-homework-of-software-testing.html">对软件测试作业的一些牢骚</a></li>
+    
+    <li data-tags="tech study all" data-hide="false"><span>22 Feb 2012</span> &raquo; <a href="/blog/2012/02/22/jni-and-pack-jni-into-jar.html">第一次使用jni，把jni打包到jar中</a></li>
+    
+    <li data-tags="all" data-hide="false"><span>19 Feb 2012</span> &raquo; <a href="/blog/2012/02/19/move-blog-to-github.html">博客迁移到github上了</a></li>
+    
+    <li data-tags="thinking study summary all" data-hide="false"><span>08 Jan 2012</span> &raquo; <a href="/blog/2012/01/08/a-summmary-of-this-year-and-the-wish-of-next-year.html">今年的小结，明年的愿望</a></li>
+    
+    <li data-tags="thinking school life study all" data-hide="false"><span>12 Dec 2011</span> &raquo; <a href="/blog/2011/12/12/some-things-some-thoughts.html">一些事，一些思考</a></li>
+    
   </ul>
 </section>
 <script>
@@ -45,3 +83,41 @@ $(document).ready(function() {
 </script>
 
 
+
+  </section>
+</section>
+<footer class="footer">
+  <div class="container">
+    <section class="contact">
+      <p>
+        Sheimi | Student of <br>
+        <a href="http://www.nju.edu.cn/">Nanjing University</a><br>
+        <a href="http://software.nju.edu.cn/">Software Institute</a><br>
+      </p>
+    </section>
+    <section class="contact">
+      <p>
+        Github:  <a href="http://github.com/sheimi/">github.com/sheimi</a><br>
+        Twitter: <a href="http://twitter.com/sheimi_nju/">@sheimi_nju</a><br>
+        Email:   <a href="sheimi.zhang@gmail.com">sheimi.zhang@gmail.com</a><br>
+      </p>
+    </section>
+    <section class="copyleft">
+      <p>
+        Copyleft&copy; <a href="http://sheimi.me">Sheimi's Hive</a><br>
+        Forked from <a href="https://github.com/mojombo/mojombo.github.com">mojombo.github.com</a><br>
+        Modified by Sheimi <br>
+      </p>
+    </section>
+    <section class="rss">
+      <a href="http://feeds.feedburner.com/sheimi-hive">
+        <img src="/images/rss.png" alt="Subscribe to RSS Feed">
+      </a>
+    </section>
+  </div>
+</footer>
+
+<script src="/js/global.js"></script>
+
+</body>
+</html>
