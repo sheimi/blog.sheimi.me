@@ -519,6 +519,7 @@ a:hover{color:#005580;}
 .header .sdw{border-top:solid 1px #eeeeee;}
 .header.scroll .sdw{background-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(transparent));-webkit-mask-box-image:-webkit-gradient(linear, left top, right top, color-stop(0, rgba(0, 0, 0, 0)), color-stop(0.5, rgba(0, 0, 0, 0.8)), color-stop(1, rgba(0, 0, 0, 0)));height:6px;opacity:.6;}
 .about h4{text-align:center;font-weight:bold;}
+.about span{margin:0 8px;}
 .about a{color:#8085C1;}.about a:visited{color:#8085C1;}
 .about hr{margin-top:4px;}
 .main-content .site-main h1{text-align:center;font-size:1.7em;}
