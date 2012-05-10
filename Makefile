@@ -8,8 +8,7 @@ compile:
 upload: compile
 	git add .
 	echo "Enter commit message: "
-	read msg
-	git commit -a -m "$msg"
+	git commit -a -m "post"
 	git push
 
 
