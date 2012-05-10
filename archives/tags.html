@@ -25,19 +25,19 @@
   </h4>
   <hr>
 </section>
-<section class="container main-content">
-  <section class="site-main">
+<section class="container main-content row">
+  <section class="site-main span9 offset1">
   <section class="tag-cloud">
   <h2>Tag Cloud</h2>
   <div class="cloud">
     <a style="font-size: 1.5em" href="/tags.html#all">All</a>
-    <a style='font-size: 0.8em' href='/tags.html#software testing'>software testing</a>
+    <a style='font-size: 0.8em' href='/tags.html#complain'>complain</a>
+<a style='font-size: 1.6em' href='/tags.html#thinking'>thinking</a>
 <a style='font-size: 1.6em' href='/tags.html#school life'>school life</a>
 <a style='font-size: 0.8em' href='/tags.html#summary'>summary</a>
+<a style='font-size: 0.8em' href='/tags.html#software testing'>software testing</a>
 <a style='font-size: 0.8em' href='/tags.html#tech'>tech</a>
-<a style='font-size: 0.8em' href='/tags.html#complain'>complain</a>
 <a style='font-size: 2.0em' href='/tags.html#study'>study</a>
-<a style='font-size: 1.6em' href='/tags.html#thinking'>thinking</a>
 
   </div>
 </section>
@@ -45,15 +45,30 @@
   <h2>Posts of <span class="filter-result">All</span></h2>
   <ul class="posts">
     
-    <li data-tags="school life complain software testing all" data-hide="false"><span>24 Feb 2012</span> &raquo; <a href="/blog/2012/02/24/a-little-complain-about-the-homework-of-software-testing.html">对软件测试作业的一些牢骚</a></li>
+    <li class="row" data-tags="school life complain software testing all" data-hide="false">
+      <span class="span2">24 Feb 2012 &raquo;</span>
+      <span class="span4 offset1"><a href="/blog/2012/02/24/a-little-complain-about-the-homework-of-software-testing.html">对软件测试作业的一些牢骚</a></span>
+    </li>
     
-    <li data-tags="tech study all" data-hide="false"><span>22 Feb 2012</span> &raquo; <a href="/blog/2012/02/22/jni-and-pack-jni-into-jar.html">第一次使用jni，把jni打包到jar中</a></li>
+    <li class="row" data-tags="tech study all" data-hide="false">
+      <span class="span2">22 Feb 2012 &raquo;</span>
+      <span class="span4 offset1"><a href="/blog/2012/02/22/jni-and-pack-jni-into-jar.html">第一次使用jni，把jni打包到jar中</a></span>
+    </li>
     
-    <li data-tags="all" data-hide="false"><span>19 Feb 2012</span> &raquo; <a href="/blog/2012/02/19/move-blog-to-github.html">博客迁移到github上了</a></li>
+    <li class="row" data-tags="all" data-hide="false">
+      <span class="span2">19 Feb 2012 &raquo;</span>
+      <span class="span4 offset1"><a href="/blog/2012/02/19/move-blog-to-github.html">博客迁移到github上了</a></span>
+    </li>
     
-    <li data-tags="thinking study summary all" data-hide="false"><span>08 Jan 2012</span> &raquo; <a href="/blog/2012/01/08/a-summmary-of-this-year-and-the-wish-of-next-year.html">今年的小结，明年的愿望</a></li>
+    <li class="row" data-tags="thinking study summary all" data-hide="false">
+      <span class="span2">08 Jan 2012 &raquo;</span>
+      <span class="span4 offset1"><a href="/blog/2012/01/08/a-summmary-of-this-year-and-the-wish-of-next-year.html">今年的小结，明年的愿望</a></span>
+    </li>
     
-    <li data-tags="thinking school life study all" data-hide="false"><span>12 Dec 2011</span> &raquo; <a href="/blog/2011/12/12/some-things-some-thoughts.html">一些事，一些思考</a></li>
+    <li class="row" data-tags="thinking school life study all" data-hide="false">
+      <span class="span2">12 Dec 2011 &raquo;</span>
+      <span class="span4 offset1"><a href="/blog/2011/12/12/some-things-some-thoughts.html">一些事，一些思考</a></span>
+    </li>
     
   </ul>
 </section>
@@ -89,32 +104,34 @@ $(document).ready(function() {
 </section>
 <footer class="footer">
   <div class="container">
-    <section class="contact">
-      <p>
-        Sheimi | Student of <br>
-        <a href="http://www.nju.edu.cn/">Nanjing University</a><br>
-        <a href="http://software.nju.edu.cn/">Software Institute</a><br>
-      </p>
-    </section>
-    <section class="contact">
-      <p>
-        Github:  <a href="http://github.com/sheimi/">github.com/sheimi</a><br>
-        Twitter: <a href="http://twitter.com/sheimi_nju/">@sheimi_nju</a><br>
-        Email:   <a href="sheimi.zhang@gmail.com">sheimi.zhang@gmail.com</a><br>
-      </p>
-    </section>
-    <section class="copyleft">
-      <p>
-        Copyleft&copy; <a href="http://sheimi.me">Sheimi's Hive</a><br>
-        Forked from <a href="https://github.com/mojombo/mojombo.github.com">mojombo.github.com</a><br>
-        Modified by Sheimi <br>
-      </p>
-    </section>
-    <section class="rss">
-      <a href="http://feeds.feedburner.com/sheimi-hive">
-        <img src="/images/rss.png" alt="Subscribe to RSS Feed">
-      </a>
-    </section>
+    <div class="row">
+      <section class="contact span3">
+        <p>
+          Sheimi | Student of <br>
+          <a href="http://www.nju.edu.cn/">Nanjing University</a><br>
+          <a href="http://software.nju.edu.cn/">Software Institute</a><br>
+        </p>
+      </section>
+      <section class="contact span3">
+        <p>
+          Github:  <a href="http://github.com/sheimi/">github.com/sheimi</a><br>
+          Twitter: <a href="http://twitter.com/sheimi_nju/">@sheimi_nju</a><br>
+          Email:   <a href="sheimi.zhang@gmail.com">sheimi.zhang@gmail.com</a><br>
+        </p>
+      </section>
+      <section class="copyleft span3">
+        <p>
+          Copyleft&copy; <a href="http://sheimi.me">Sheimi's Hive</a><br>
+          Forked from <a href="https://github.com/mojombo/mojombo.github.com">mojombo.github.com</a><br>
+          Modified by Sheimi <br>
+        </p>
+      </section>
+      <section class="rss span2 offset1">
+        <a href="http://feeds.feedburner.com/sheimi-hive">
+          <img src="/images/rss.png" alt="Subscribe to RSS Feed">
+        </a>
+      </section>
+    </div>
   </div>
 </footer>
 
