@@ -2,9 +2,7 @@
 layout: post
 title:  第一次使用jni，把jni打包到jar中 
 category: blog
-tags:
-  - tech
-  - study
+tags: [tech, study, jar, java, jni]
 meta:
   location: NJU
 ---

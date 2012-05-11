@@ -30,8 +30,7 @@ module Liquid
       end
   
       to_delete.map(&:remove)
-  
-      doc.inner_html
+      doc.children.children.inner_html
     end
     
   private

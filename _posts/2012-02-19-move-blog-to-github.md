@@ -4,6 +4,10 @@ title:  博客迁移到github上了
 category: blog
 meta:
   location: NJU
+tags:
+  - blog
+  - git
+  - github
 ---
 
 这两天把自己的博客迁到github上了，并且把自己写的大部分的作业什么的放到了github上了。
