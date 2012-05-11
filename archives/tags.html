@@ -31,13 +31,13 @@
   <h2>Tag Cloud</h2>
   <div class="cloud">
     <a style="font-size: 1.5em" href="/tags.html#all">All</a>
-    <a style='font-size: 0.8em' href='/tags.html#complain'>complain</a>
-<a style='font-size: 2.0em' href='/tags.html#study'>study</a>
-<a style='font-size: 1.6em' href='/tags.html#thinking'>thinking</a>
-<a style='font-size: 0.8em' href='/tags.html#software testing'>software testing</a>
-<a style='font-size: 1.6em' href='/tags.html#school life'>school life</a>
-<a style='font-size: 0.8em' href='/tags.html#tech'>tech</a>
-<a style='font-size: 0.8em' href='/tags.html#summary'>summary</a>
+    <a style='font-size: 1.6em' href='/archives/tags.html#thinking'>thinking</a>
+<a style='font-size: 0.8em' href='/archives/tags.html#software testing'>software testing</a>
+<a style='font-size: 0.8em' href='/archives/tags.html#summary'>summary</a>
+<a style='font-size: 2.0em' href='/archives/tags.html#study'>study</a>
+<a style='font-size: 1.6em' href='/archives/tags.html#school life'>school life</a>
+<a style='font-size: 0.8em' href='/archives/tags.html#tech'>tech</a>
+<a style='font-size: 0.8em' href='/archives/tags.html#complain'>complain</a>
 
   </div>
 </section>
@@ -74,10 +74,11 @@
 </section>
 <script>
 $(document).ready(function() {
-  $(".cloud a").click(function(e) {
-    e.preventDefault()
-    var url = $(this).attr('href')
+  function filter_post(url) {
     var index = url.indexOf('#')
+    if (index == -1) {
+      return
+    }
     var tag = url.substr(index + 1)
     $('ul.posts li').each(function() {
       var tags = $(this).attr('data-tags')
@@ -94,7 +95,14 @@ $(document).ready(function() {
         }
       }
     })
+  }
+  $(".cloud a").click(function(e) {
+    e.preventDefault()
+    var url = $(this).attr('href')
+    filter_post(url)
   })
+  var href = window.location.href
+  filter_post(href)
 })
 </script>
 

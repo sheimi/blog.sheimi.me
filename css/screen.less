@@ -107,28 +107,31 @@ ul.posts {
 /* * * * * * * POST * * * * * */
 
 .post {
-  .meta span {
-    top: 12px !important;
+  .meta .inline {
+    top: -12px !important;
   }
 }
 
 #post, .post {
   .meta {
     text-align: center;
+    margin-top: 20px;
     margin-bottom: 50px;
     font-family: "helvetica neue", helvetica, arial;
     font-size: 1em;
     color: @grayLight;
-    border-bottom: 1px solid @grayLighter;
-    span {
-      background: @white;
+    border-top: 1px solid @grayLighter;
+    .inline {
       display: inline-block;
       margin: 0 auto;
-      padding: 0 8px;
-      top: 8px;
+      top: -8px;
       border: none;
       position: relative;
-      margin: 0 4px;
+      span {
+        padding: 0 8px;
+        background: @white;
+        margin: 0 4px;
+      }
     }
   }
   .content {
@@ -139,6 +142,19 @@ ul.posts {
   }
   ul, ol {
     margin-left: 1.35em;
+  }
+  .end-tag {
+    margin-top: 20px;
+    a {
+      color: #8085C1;
+      &:visited {
+        color: #8085C1;
+      }
+    }
+    span {
+      display: block;
+      margin-bottom: 5px;
+    }
   }
 }
 #related {
