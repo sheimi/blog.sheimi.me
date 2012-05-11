@@ -6,7 +6,7 @@ meta:
   location: NJU 
 tags:
   - thinking
-  - school life
+  - school_life
   - study
 ---
 

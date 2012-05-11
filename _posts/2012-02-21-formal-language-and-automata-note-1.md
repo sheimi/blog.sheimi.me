@@ -6,8 +6,8 @@ published: false
 meta:
   location: NJU
 tags:
-  - formal language
-  - the theory of computation
+  - formal_language
+  - the_theory_of_computation
 ---
 
 Alphabets, Word, and Language

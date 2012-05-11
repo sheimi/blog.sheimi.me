@@ -3,9 +3,9 @@ layout: post
 title: 对软件测试作业的一些牢骚
 category: blog
 tags:
-  - school life
+  - school_life
   - complain
-  - software testing
+  - software_testing
 meta:
   location: NJU
 ---
