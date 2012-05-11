@@ -528,7 +528,7 @@ a:hover{color:#005580;}
 ul.posts{list-style-type:none;margin-bottom:2em;margin-left:0;}ul.posts li{line-height:1.75em;}
 ul.posts span{color:#aaa;font-family:Monaco,"Courier New",monospace;}
 ul.posts span.read-rest a{color:#8085C1;}ul.posts span.read-rest a:visited{color:#8085C1;}
-.post .meta .inline{top:-12px !important;margin-bottom:10px;}
+.post .meta .inline{top:-12px !important;margin-bottom:10px !important;}
 #post .meta,.post .meta{text-align:center;margin-top:20px;margin-bottom:30px;font-family:"helvetica neue",helvetica,arial;font-size:1em;color:#999999;border-top:1px solid #eeeeee;}#post .meta .inline,.post .meta .inline{display:inline-block;margin:0 auto;top:-8px;border:none;position:relative;}#post .meta .inline span,.post .meta .inline span{padding:0 8px;background:#ffffff;margin:0 4px;}
 #post .content,.post .content{color:#555555;}
 #post p,.post p{font-size:1.1em;}
