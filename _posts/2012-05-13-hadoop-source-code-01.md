@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 源代码阅读笔记（1） --- nutch
+title: 源代码阅读笔记（1） --- nutch 的结构
 category: blog
 published: true
 meta:
