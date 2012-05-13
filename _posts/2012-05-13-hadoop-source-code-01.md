@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 源代码阅读笔记（1） --- nutch, lucene, hadoop
+title: 源代码阅读笔记（1） --- nutch
 category: blog
 published: true
 meta:
@@ -97,5 +97,5 @@ if (solrUrl != null) {
 
 值得一提的是，nutch 对文件系统的操作使用的是 hadoop 的 FileSystem 接口，这个接口把文件系统给封装了起来，只要通过修改配置文件就可以决定 nutch 使用的是本地文件系统，还是一个 HDFS 这样的分布式文件系统。
 
-今天就写到这里啦，To be Continue ~~~~
+今天就写到这里啦，To be Continued ~~~~
 
