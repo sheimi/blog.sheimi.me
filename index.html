@@ -33,6 +33,37 @@
     
     <li>
       <article class="post">
+        <h1><a href="/blog/2012/05/17/source-code-02.html">源代码阅读笔记（2） --- nutch (Injector)</a></h1>
+        <section class="meta">
+        <div class="inline">
+          <span class="date">17 May 2012</span><span>At NJU</span>
+        </div>
+        </section>
+        <p>上次说道，nutch 的爬虫在运行中的总体的步骤，他们由：</p>
+
+<ul>
+<li>Injector</li>
+<li>Generator</li>
+<li>Fetcher</li>
+<li>ParseSegment</li>
+<li>SolrIndexer</li>
+</ul>
+<p>组成。其中 Injector 是一开始的初始化，SolerIndexer 是迭代结束的时候再开始的。而中间的三步是放在一个 for 循环里的。</p>
+
+<p>下面就一个一个来分析。</p>
+
+<h2>Injector</h2>
+
+<p>Injector 是一个 MapReduce 的程序，它的作用是把用户提交的初始的 url 列表注入到 CrawlDb 中. 并且 Nutch 是要定期更新爬取的东西，所以，Injector 中还对新的 url 和老的 url 做了一些合并。</p>
+
+...
+        <span class="read-rest"><a href="/blog/2012/05/17/source-code-02.html">Read the rest of this post »</a></span>
+      </article>
+      <hr>
+    </li>
+    
+    <li>
+      <article class="post">
         <h1><a href="/blog/2012/05/13/hadoop-source-code-01.html">源代码阅读笔记（1） --- nutch 的结构</a></h1>
         <section class="meta">
         <div class="inline">
