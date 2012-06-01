@@ -76,7 +76,7 @@ h2. Other Information
 *(left other contact) Tel: 
   ** +86 15298388031
 *(left other contact)  
-  ** %(contact-label)Email:% "sheimi.zhang@gmail.com":sheimi.zhang@gmail.com
+  ** %(contact-label)Email:% "sheimi.zhang@gmail.com":mailto:sheimi.zhang@gmail.com
   ** %(contact-label)Github:% "github.com/sheimi":https://github.com/sheimi
   ** %(contact-label)Blog:% "blog.sheimi.me":http://blog.sheimi.me
   ** %(contact-label)Twitter:% "@sheimi_nju":http://twitter.com/#!/sheimi_nju
