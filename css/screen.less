@@ -235,6 +235,33 @@ ul.posts {
 .footer.show {
   margin-bottom: 0;
 }
+@media (max-width: 767px) {
+  .contact {
+    display: none !important;
+  }
+}
+
 /* * * * Footer END * * * * * */
 
+/* * * * GIT HUB TAG * * * * */
+@media (min-width: 480px) {
+  a#github-flag {
+    img {
+      z-index: 1000;
+      position: fixed; 
+      top: 0;
+      right: 0;
+      border: 0;
+    }
+  }
+}
+@media (max-width: 480px) {
+  a#github-flag {
+    display: none;
+    img {
+      display: none;
+    }
+  }
+}
+/* * * GIT HUB TAG END * * * */
 
