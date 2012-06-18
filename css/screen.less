@@ -7,6 +7,9 @@ body {
   margin-top: 80px;
   margin-bottom: 90px;
 }
+body, p {
+  font-family: palatino, 'times new roman', serif;
+}
 .clear {
   clear: both;
 }
@@ -173,9 +176,13 @@ ul.posts {
   }
   .content {
     color: @gray;
-  }
-  p {
     font-size: 1.1em;
+    p, li, ul {
+      font-size: 1em;
+    }
+    li {
+      line-height: 1.5em;
+    }
   }
   ul, ol {
     margin-left: 1.35em;

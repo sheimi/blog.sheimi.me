@@ -11,6 +11,7 @@ tags: [architecture, review，note]
 1. 名词解释
 ----------
 
+
 ### 设计的5个准则
 
 +   准则1：用“美”的方式实现功能，是设计的价值
@@ -46,12 +47,53 @@ tags: [architecture, review，note]
     +   considers: software module organization(Hierarchy of layers, software management, reuse, constraints of tools)
 +   Physical View: to describe the mapping of the software onto the hardware and reflects its distributed aspect
     +   mapping the software to the hardware
+    +   Topology and Communication
+    +   viewer: System Engineers
+    +   considers: Non-functional req. regarding to underlying hardware (avalibility, reliability(fault-tolerance), performance(throughput) and scalability)
++   Scenarios
+    +   put it all together
+    +   viewer: all users of other views and evaluators
+    +   consider: system consistency, validity
+    +   help architect during the architecture design
+    +   help illustrate and validate the document
 
 ### OO 协作与协作设计（理解）
+
+#### What's Collaboration  
+  
+> The objects within a program must collaborate;
+> otherwise, the program would consist of only one 
+> big object that dose everything.
+
+An application can be broken down into a set of many different behaviors. Each such behavior is implemented by a distinct collaboration between the objects of the application
+
+*Every collaboration, no matter how small or large, always implements a behavior of the application*
+
+Imagine an object-oriented application as a network of objects connected by relationships. Collaborations are the patterns of messages that play through that network in puersuit of a particular behavior. The collaboration is distributed across the network of objects, and so does not exist in any one place
+
+#### Collaboration Design
+
+Identify collaboration:
+
++   system behavior from use-case
++   from software architecture design(Module interface and Process communication)
+
+Design collaboration(of system behaviors: control structures):
+
++   two ways: *Dispersed* and *Centralized*
+    +   Dispersed: Logics of a system behavior is spread widely through the objects network
+    +   Centralized: One extra controller record all logics of a system behavior
++   Control Styles: *Dispersed*, *Centralized*, *Delegated*
+    +   Centralized:Easy to find where the decision are made
+
+
+Design collaboration(of system behaviors: control structures)
 
 ### OO 职责与职责分配
 
 ### GRASP 模式（或其中之一）（理解）
+
+GRASP, General Responsibility Assignment Software Pattern.
 
 
 2. 软件设计的审美标准
