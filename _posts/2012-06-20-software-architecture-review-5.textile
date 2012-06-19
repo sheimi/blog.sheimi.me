@@ -1,0 +1,88 @@
+---
+layout: post
+title: 软件架构复习笔记(5)
+category: blog
+published: false 
+meta:
+  location: NJU 
+tags: [architecture, review，note]
+---
+
+h2. 5. 职责分配与设计协作
+
+要求:
+* 协作设计（控制风格）的比较和场景判定
+* 对给定场景和要求的控制风格，根据GRASP模式判定职责的分配
+* 根据分析类图和体系结构模块接口，建立基本设计类图
+
+
+h2. 6. 设计模式
+
+h3. 重点，设计模式部分所有的思考题（2题）
+
+h4. 集合类型Programming to Interface
+
+题目：有一个数据列表DataList,其基本类型是3维向量ThreeD<x,y,z>，1）用Java语言实现该数据列表的数据结构。假设有三个外部对象A,B,C,分别对其x、y、 z维度感兴趣,希望访问DataList在相应维 度的数据并进行处理。2)请定义其对外的数据接口。分别使用Iterator与Proxy。（PS：Iterator，Proxy需要自己实现）
+
+
+
+h3. 普通 Programming to Interface 有哪些手段？集合类型 PTI 有那些手段
+
+普通：模块化，信息隐藏？
+* Inheritance permits defining a family of objects with identical interfaces
+* All derived classes share the base class interface
+* All subclasses then respond to requests in the interface of the abstract class
+* LSP("Liskov substitution principle":http://en.wikipedia.org/wiki/Liskov_substitution_principle): All derived class must be substituteable for their base class
+
+集合类型：
+* Iterator Pattern
+* Proxy Pattern
+* Prototype Pattern?
+
+h3. OCP 有那些手段（提示：不只是继承）
+
+Be open for extension: module's behavior can be extended
+Be close for modification: source code for the module must not be changes
+
+继承，聚合，组合，配置 。。。
+Defer ...
+Dynamic Binding: (polymorphism) 
+Runtime registration: (event style) 
+tartup binding: (configuration file) 
+ppt 最后一张
+
+h3. 一个模块的信息隐藏有哪两种基本类型，各自有哪些处理手段？
+
+?????
+* 對於可變性的處理 
+* 外部表現和內部結構的區別 
+
+两种决策类型：
+* 需求：即一个模块的接口功能与模块内部程序细节的分离
+  ** 给出功能接口，隐藏功能实现程序的细节
+* 变化：将要发生变化的程序部分需要进行一个决策
+  ** 给出需要修改部分的接口，隐藏待修改部分的实现程序细节
+
+basic secret: external behavior VS internal implementation
+hides the implmentation of an important design decision
+Especially if there is a list of all possible design changes is made - hiding assumption list
+
+facade 
+
+
+
+h3. 实现共性与可变性有哪些手段？ 对给定的场景，给出共性与可变性的设计方案，将继承和聚合搞好
+聚合，继承
+
+h3. 在解决De-Coupling时，常常使用哪些Indirection的手段？对给定场景给出Indirection的解决方案
+
+从常见模式来考虑
+
+h3. MVC与分层方式的区别（要具体到实现）
+
+h3. 对象的创建有哪些常见的解决方法（hint：这里要求常见解决方法，不是设计模式）
+
+创建谁来创建
+高内聚
+低耦合
+创建者（聚合，包含）
