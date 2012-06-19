@@ -46,6 +46,39 @@
     
     <li>
       <article class="post">
+        <h1><a href="/blog/2012/06/19/software-architecture-review-3.html">软件架构复习笔记(3) -- 软件体系结构的风格</a></h1>
+        <section class="meta">
+        <div class="inline">
+          <span class="date">19 Jun 2012</span><span>At NJU</span>
+        </div>
+        </section>
+        <p>要求：</p>
+<ul>
+<li>描述或比较相关的风格</li>
+	<li>对给定场景判断需要使用的风格</li>
+</ul>
+<h2>主程序/子程序风格 (Main Program/Subroutine Style)</h2>
+<p>约束：</p>
+<ul>
+<li>基于声名-使用（程序调用）关系建立连接件，层次分解的方式建立系统部件</li>
+	<li>上层部件可以使用下层部件，但下层部件不能使用上层部件，即不允许你方向调用</li>
+	<li>系统应该是单线程执行。主程序部件拥有最初的执行控制权，并在“使用”中将控制权转移给下层子程序</li>
+	<li>子程序只能够通过上层转移来获取控制权，可以在执行中将控制权转角给下层子程序，并在自身执行完成之后将控制权交还给上层部件</li>
+</ul>
+<p>优点：</p>
+<ul>
+<li>流程清晰，易于理解</li>
+	<li>强控制性。</li>
+	<li>发生错误的时候，可惜迅速定位错误源</li>
+</ul>
+<p>缺点：...</p>
+        <span class="read-rest"><a href="/blog/2012/06/19/software-architecture-review-3.html">Read the rest of this post »</a></span>
+      </article>
+      <hr>
+    </li>
+    
+    <li>
+      <article class="post">
         <h1><a href="/blog/2012/06/19/software-architecture-review-2.html">软件架构复习笔记(2) -- 设计的审美标准，设计的层次性</a></h1>
         <section class="meta">
         <div class="inline">
