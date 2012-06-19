@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 软件架构复习笔记(1)
+title: 软件架构复习笔记(1) --- 名词解释
 category: blog
 published: true 
 meta:
@@ -8,9 +8,7 @@ meta:
 tags: [architecture, review，note]
 ---
 
-h2. 1. 名词解释
-
-h3. 设计的5个准则
+h2. 设计的5个准则
 
 准则1：用“美”的方式实现功能，是设计的价值
 准则2：设计的复杂度 = 事物复杂度 + 载体与事物的适配复杂度
@@ -28,7 +26,7 @@ h3. 设计的5个准则
 
 准则5：只有写完并测试代码之后，才能算是完成了设计（构造问题）
 
-h3. 4+1 View
+h2. 4+1 View
 
 Logic View: 
 * the object model of the design (when an oo design method is used)
@@ -64,9 +62,9 @@ Scenarios
 * help architect during the architecture design
 * help illustrate and validate the document
 
-h3. OO 协作与协作设计（理解）
+h2. OO 协作与协作设计（理解）
 
-h4. What's Collaboration  
+h3. What's Collaboration  
   
 An application can be broken down into a set of many different behaviors. 
 Each such behavior is implemented by a distinct collaboration between the objects of the application
@@ -74,7 +72,7 @@ Each such behavior is implemented by a distinct collaboration between the object
 
 Imagine an object-oriented application as a network of objects connected by relationships. Collaborations are the patterns of messages that play through that network in pursuit of a particular behavior. The collaboration is distributed across the network of objects, and so does not exist in any one place
 
-h4. Collaboration Design
+h3. Collaboration Design
 
 Identify collaboration:
 
@@ -117,7 +115,7 @@ Heuristics:
 * Avoid interactions that require each component to send many messages
 
 
-h3. OO 职责与职责分配
+h2. OO 职责与职责分配
 
 
 在面向对象的系统中是由多个对象组成的，这些对象必需能够向其它对象发送消息或操作，这就是对象的交互和职责分配
@@ -128,11 +126,11 @@ h3. OO 职责与职责分配
 职责分配注意什么？
 职责分配是为了满足需求，模块化，信息隐藏，GRASP
 
-h3. GRASP 模式（或其中之一）（理解）
+h2. GRASP 模式（或其中之一）（理解）
 
 GRASP, General Responsibility Assignment Software Pattern. These are not 'design patterns', rather fundamental principles of object design. GRASP focus on one of the most aspects of object design, assigning responsibilities to classes
 
-GRASP patterns:
+h3. GRASP patterns:
 
 * Low Coupling
 * High Cohesion
@@ -144,19 +142,19 @@ GRASP patterns:
 * Protected Variations
 * Polymorphism
 
-Low Coupling:
+h3. Low Coupling:
 
 * Problem: To support low dependency and incresed reuse
 * Solution: Assign responsibilities so that coupling remains low
 * Coupling Types ???
 
-High Cohesion:
+h3. High Cohesion:
 
 * Problem: To keep complexity manageable
 * Solution: Assign responsibilities so that cohesion remains high
 * Cohesion Types ???
 
-Expert:
+h3. Expert:
 
 * Problem: What is the most basic principle by which responsibilities are assigned in object-oriented design?
 * Solution: Assign a responsibility to the class that has the information necessary to fulfill the responsibility.
@@ -165,7 +163,7 @@ Expert:
   Promotes high cohesive class  
   Can cause a class to become exessively complex
 
-Creator:
+h3. Creator:
 
 * Problem: Assign responsibility for creating a new instance of some class?
 * Solution: Determine which class should create instances of a class based on the relationship between potential creator classes and the class to be instantiated.
@@ -180,7 +178,7 @@ Creator:
 * Promotes low coupling by making instances of a class responsible for creating objects they need to reference
 * By creating the objects themselves, they avoid being dependent on another class to create the object for them
 
-Controller:
+h3. Controller:
 
 * Problem: To assign responsibility for handling a system event ? 
 * Solution: If a program receive events from external sources other than its graphical interface, add an event class to decouple the event source(s) from the objects that actually handle the events.
@@ -193,12 +191,12 @@ Controller:
 * Using a controller object keeps external event sources and internal event handlers independent of each other’ type and behavior
 * The controller objects can become highly coupled and uncohesive with more responsiblities
 
-Polymorphism:
+h3. Polymorphism:
 
 * Problem: To handle alternatives based on types?
 * Solution: When alternate behaviors are selected based on the type of an object, use polymorphic method call to select the behavior, rather than using if statement to test the type.
 
-Pure Fabrication
+h3. Pure Fabrication
 
 * Problem: To not violate High Cohesion and Low Coupling?
 * Solution: Assign a highly cohesive set of responsibilities to an artificial class that does not represent anything in the problem domain, in order to support high cohesion, low coupling, and reuse.
@@ -211,7 +209,7 @@ of the presence of fine grained Pure Fabrication classes.
   ** Separating complex behavior
   ** Separating complex data structure
 
-Indirection:
+h3. Indirection:
 
 * Problem: To avoid direct coupling? Mainly because _changability_! To de-couple objects so that Low coupling is supported and reuse potential remains high?
 * Solution: Assign the responsibility to an intermediate object to mediate between other components or services, so that they are not directly coupled.
@@ -224,7 +222,7 @@ Indirection:
   ** Mediator Pattern
   ** Publish-Subscribe or Observer pattern
 
-Protected Variation
+h3. Protected Variation
 
 * Problem: How to design objects, subsystems, and systems so that the variations or instability in these elements does not have an undesirable impact on other elements?
 * Solution: Identify points of predicted variation or instability; assign responsibilities to create a stable interface around them.
@@ -238,7 +236,7 @@ Protected Variation
   ** LSP(polymorphism)
   ** Law of Demeter(restrict communication paths)
 
-Rule of thumb
+h3. Rule of thumb
 
 * When there are alternative design choices take a closer look at the cohesion and coupling implications of the alternatives and possibly a the future evolution pressures on the alternatives. Choose an alternative with good cohesion, coupling and stability.
 
