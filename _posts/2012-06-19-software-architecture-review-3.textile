@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 软件架构复习笔记(3) -- 软件体系结构的风格
-category: blog
+category: note 
 published: true 
 meta:
   location: NJU 

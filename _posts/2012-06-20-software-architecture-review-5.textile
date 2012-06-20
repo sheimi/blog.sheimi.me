@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 软件架构复习笔记(4) -- 设计模式思考题(2)
-category: blog
+category: note 
 published: true 
 meta:
   location: NJU 
