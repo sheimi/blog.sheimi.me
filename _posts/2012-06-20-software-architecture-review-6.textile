@@ -5,7 +5,7 @@ category: note
 published: true 
 meta:
   location: NJU 
-tags: [architecture, review，note]
+tags: [architecture, review, note]
 ---
 
 h2. 普通 Programming to Interface 有哪些手段？集合类型 PTI 有那些手段

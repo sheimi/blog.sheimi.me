@@ -5,7 +5,7 @@ category: note
 published: true 
 meta:
   location: NJU 
-tags: [architecture, review，note]
+tags: [architecture, review, note]
 ---
 
 要求：

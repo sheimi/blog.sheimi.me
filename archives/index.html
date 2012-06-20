@@ -18,7 +18,7 @@ projects:
   - ['10 Oct 2010', 'danger_ko', 'A Android Application: Danger KO']
 ---
 <h2>Blog Posts</h2>
-<ul class="posts">
+<ul id="blog" class="posts">
   {% for post in site.posts %}
     {% if post.category == 'blog' %}
     <li class="row">
@@ -30,7 +30,7 @@ projects:
 </ul>
 
 <h2>Notes</h2>
-<ul class="posts">
+<ul id="note" class="posts">
   {% for post in site.posts %}
     {% if post.category == 'note' %}
     <li class="row">

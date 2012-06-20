@@ -1,11 +1,11 @@
 ---
 layout: post
-title: 软件架构复习笔记(1) --- 名词解释
+title: 软件架构复习笔记(1) -- 名词解释
 category: note 
 published: true 
 meta:
   location: NJU 
-tags: [architecture, review，note]
+tags: [architecture, review, note]
 ---
 
 h2. 设计的5个准则
