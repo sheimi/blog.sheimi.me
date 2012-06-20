@@ -283,7 +283,7 @@ The State pattern is about doing different things based on the state, while leav
 
 h4. "1 of N" or "M of N"? 
 
-strategy M of N, state 1 of N ??
+strategy M of N, state 通常是 1 of N ，但是在并发的情况下是 M of N
 
 h4. Who control the change of variation?
 
