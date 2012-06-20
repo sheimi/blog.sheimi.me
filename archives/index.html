@@ -17,8 +17,8 @@ projects:
   - ['10 Mar 2011', 'lostandfind', 'A PHP Website: Lost & Find (Desperated)']
   - ['10 Oct 2010', 'danger_ko', 'A Android Application: Danger KO']
 ---
-<h2>Blog Posts</h2>
-<ul id="blog" class="posts">
+<h2 id="blog">Blog Posts</h2>
+<ul class="posts">
   {% for post in site.posts %}
     {% if post.category == 'blog' %}
     <li class="row">
@@ -29,8 +29,8 @@ projects:
   {% endfor %}
 </ul>
 
-<h2>Notes</h2>
-<ul id="note" class="posts">
+<h2 id="note">Notes</h2>
+<ul class="posts">
   {% for post in site.posts %}
     {% if post.category == 'note' %}
     <li class="row">
@@ -41,7 +41,7 @@ projects:
   {% endfor %}
 </ul>
 
-<h2>Homework</h2>
+<h2 id="homework">Homework</h2>
 <ul class="posts">
   {% for hw in page.homework%}
   <li class="row">
@@ -51,7 +51,7 @@ projects:
   {% endfor %}
 </ul>
 
-<h2>Tiny Projects</h2>
+<h2 id="projects">Tiny Projects</h2>
 <ul class="posts">
   {% for pj in page.projects%}
   <li class="row">
