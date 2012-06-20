@@ -1,88 +1,211 @@
 ---
 layout: post
-title: 软件架构复习笔记(5)
+title: 软件架构复习笔记(4) -- 设计模式思考题(2)
 category: blog
-published: false 
+published: true 
 meta:
   location: NJU 
 tags: [architecture, review，note]
 ---
 
-h2. 5. 职责分配与设计协作
+h2. Common and Variation
 
-要求:
-* 协作设计（控制风格）的比较和场景判定
-* 对给定场景和要求的控制风格，根据GRASP模式判定职责的分配
-* 根据分析类图和体系结构模块接口，建立基本设计类图
+h3. 使用Bridge Pattern实现一个画图程序的主体 框架
+
+* 图形：点、线、矩形、圆... 
+* 线形：实线、虚线、双线... 
+* 线粗细：1x、2x、4x
+* 颜色：RGB
+
+？？
+由于只有图形和线形是可变的类型，因此 Bridge Pattern 的两个继承树图形和线形。
+
+{% highlight java %}
+
+public class Bridge {
+  public static void main(String[] args) {
+  }
+}
+
+abstract class Shape {
+  private DrawImpl impl;
+  public Shape(DrawImpl impl) {
+    this.impl = impl;
+  }
+  protected void drawPoint(int px, int color) {impl.drawPoint(px, color);}
+  protected void drawLine(int px, int color) {impl.drawLine(px, color);}
+  protected void drawRect(int px, int color) {impl.drawRect(px, color);}
+  protected void drawCircle(int px, int color) {impl.drawCircle(px, color);}
+  public abstract void draw(int px, int color);
+}
+
+class Circle extends Shape {
+  public Circle(DrawImpl impl) {super(impl);}
+  public void draw(int px, int color) {drawCircle(px, color);}
+}
+...
+
+interface DrawImpl {
+  public void drawPoint(int px, int color); 
+  public void drawLine(int px, int color); 
+  public void drawRect(int px, int color);
+  public void drawCircle(int px, int color);
+}
+
+class SolidDrawImpl {
+  public void drawPoint(int px, int color) {}
+  public void drawLine(int px, int color) {}
+  public void drawRect(int px, int color) {}
+  public void drawCircle(int px, int color) {}
+}
+
+...
+{% endhighlight %}
+
+h2. Runtime Registration
+
+h3. 与真正自实现的Event Style相比,ObserverPattern的不同在哪里?
+
+* Event Style 中需要管理多种 Event 事件；而 ObserverPattern 只通常只需要管理一种，即自己的变化
+* Event Style 中 EventRoute 有储存关于 Event 和 ObserverList 的一个 Dictionary；Observer 中 Subject 只有一个列表
+* Event Style 中 EventRoute 只是一个事件路由，没有除了一个 Dictionary 没有其他的属于自己的信息；而 Observer 中的 Subject 包含有 Subject 信息
+* Event Style 中的事件发起的原因是第三方触发了事件；而 Observer 中 update 触发的原因是 Subject 自己的数据发生了变化，虽然是由于第三方的修改，但是时间是由自己触发的
+
+h3. 如果众多Observer的接口不相同怎么办? 不都是update接口,甚至不是同一种类型
+
+使用一个adapter使它们的接口统一
+
+h3. 用 observer 编写程序
+
+要求：
+* Model: student（ID, name, birthday)
+* View:
+  ** View1:显示ID+name
+  ** View2:显示ID+birthday
+  ** View3:修改student的三个列
+* View1~2为observer,model为subject 
+  ** 实现每次view3中实现修改后
+  ** View1~2自动更新
+
+{% highlight java %}
+
+import java.util.*;
+
+public class Ob {
+  public static void main(String[] args) {
+    Observer o1 = new View1();
+    Observer o2 = new View2();
+    Student s = new Student(1, "A", "B");
+    s.register(o1);
+    s.register(o2);
+    View3 v = new View3(s);
+    v.doSomething();
+  }
+}
+
+abstract class Observer<T extends Subject> {
+  protected T subject;
+  public abstract void update();
+  public void setSubject(T subject) {this.subject = subject; update();}
+}
+
+abstract class Subject {
+  private List<Observer> observers = new LinkedList<Observer>();
+  protected void notifyObserver() { for (Observer o : observers) o.update();}
+  public void register(Observer o) {observers.add(o); o.setSubject(this);}
+  public void remove(Observer o) {observers.remove(o); o.setSubject(null);}
+}
+
+class Student extends Subject {
+  private int id;
+  private String name;
+  private String birth;
+  public Student(int id, String name, String birth) { 
+    this.id = id; 
+    this.name = name; 
+    this.birth = birth; 
+  }
+  public void setId(int id) {this.id = id; notifyObserver();}
+  public int getId() {return id;}
+  public void setName(String name) {this.name = name; notifyObserver();}
+  public String getName() { return name;}
+  public void setBirth(String birth) {this.birth = birth; notifyObserver();}
+  public String getBirth() {return birth;}
+}
+
+class View1 extends Observer<Student> {
+  int id;
+  String name;
+  public void update() { 
+    this.id = subject.getId(); 
+    this.name = subject.getName();
+    refresh();
+  }
+  public void refresh() {
+    //show id and name
+    System.out.println("View1:" + id + name);
+  }
+}
+
+class View2 extends Observer<Student> {
+  int id;
+  String birth;
+  public void update() { 
+    this.id = subject.getId(); 
+    this.birth = subject.getBirth();
+    refresh();
+  }
+  public void refresh() {
+    //show id and birth 
+    System.out.println("View2:" + id + birth);
+  }
+}
+
+class View3 {
+  private Student s;
+  public View3(Student s) {this.s = s; }
+  public void doSomething() {
+    //change s
+    s.setId(2);
+  }
+}
+
+{% endhighlight %}
+
+h2. Creation
+
+h3. 以singleton为基础,编写程序解决上述问题(Limited instance permited)
+
+{% highlight java %}
+import java.util.*;
+public class Limiton {
+  private static int limit = 3;
+  private static Limiton[] instances = new Limiton[3]; 
+  private static Random r = new Random();
+  static {
+    for (int i = 0; i < limit; i++) {
+      instances[i] = new Limiton();
+    }
+  }
+  private Limiton(){}
+  public static Limiton getInstance() {
+    int i = r.nextInt(limit);
+    return instances[i];
+  }
+}
+
+{% endhighlight %}
+
+这是最简单的情况，如果需要考虑到如何选择 instance ，或者一个 instance 只能有一个外部引用，那么就要考虑其他东西了。
+
+h3. 如果有多个其他类实例的创建类型都需要子类来决定怎么办?
+
+在工厂方法里的里面使用多个 factoryMethod，比如 facotryMethodA，factoryMethodB
+
+h3. 如果多个其他类实例之间存在类型依赖该怎么办?
+
+如果类的种类（抽象类）的个数是确定的、不会轻易改变(也就是 Product 的种类是相对稳定的)，并且类的依赖呈现 product family，那使用 Abstract Factory
 
 
-h2. 6. 设计模式
-
-h3. 重点，设计模式部分所有的思考题（2题）
-
-h4. 集合类型Programming to Interface
-
-题目：有一个数据列表DataList,其基本类型是3维向量ThreeD<x,y,z>，1）用Java语言实现该数据列表的数据结构。假设有三个外部对象A,B,C,分别对其x、y、 z维度感兴趣,希望访问DataList在相应维 度的数据并进行处理。2)请定义其对外的数据接口。分别使用Iterator与Proxy。（PS：Iterator，Proxy需要自己实现）
 
 
-
-h3. 普通 Programming to Interface 有哪些手段？集合类型 PTI 有那些手段
-
-普通：模块化，信息隐藏？
-* Inheritance permits defining a family of objects with identical interfaces
-* All derived classes share the base class interface
-* All subclasses then respond to requests in the interface of the abstract class
-* LSP("Liskov substitution principle":http://en.wikipedia.org/wiki/Liskov_substitution_principle): All derived class must be substituteable for their base class
-
-集合类型：
-* Iterator Pattern
-* Proxy Pattern
-* Prototype Pattern?
-
-h3. OCP 有那些手段（提示：不只是继承）
-
-Be open for extension: module's behavior can be extended
-Be close for modification: source code for the module must not be changes
-
-继承，聚合，组合，配置 。。。
-Defer ...
-Dynamic Binding: (polymorphism) 
-Runtime registration: (event style) 
-tartup binding: (configuration file) 
-ppt 最后一张
-
-h3. 一个模块的信息隐藏有哪两种基本类型，各自有哪些处理手段？
-
-?????
-* 對於可變性的處理 
-* 外部表現和內部結構的區別 
-
-两种决策类型：
-* 需求：即一个模块的接口功能与模块内部程序细节的分离
-  ** 给出功能接口，隐藏功能实现程序的细节
-* 变化：将要发生变化的程序部分需要进行一个决策
-  ** 给出需要修改部分的接口，隐藏待修改部分的实现程序细节
-
-basic secret: external behavior VS internal implementation
-hides the implmentation of an important design decision
-Especially if there is a list of all possible design changes is made - hiding assumption list
-
-facade 
-
-
-
-h3. 实现共性与可变性有哪些手段？ 对给定的场景，给出共性与可变性的设计方案，将继承和聚合搞好
-聚合，继承
-
-h3. 在解决De-Coupling时，常常使用哪些Indirection的手段？对给定场景给出Indirection的解决方案
-
-从常见模式来考虑
-
-h3. MVC与分层方式的区别（要具体到实现）
-
-h3. 对象的创建有哪些常见的解决方法（hint：这里要求常见解决方法，不是设计模式）
-
-创建谁来创建
-高内聚
-低耦合
-创建者（聚合，包含）

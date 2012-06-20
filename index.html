@@ -46,6 +46,37 @@
     
     <li>
       <article class="post">
+        <h1><a href="/blog/2012/06/20/software-architecture-review-5.html">软件架构复习笔记(4) -- 设计模式思考题(2)</a></h1>
+        <section class="meta">
+        <div class="inline">
+          <span class="date">20 Jun 2012</span><span>At NJU</span>
+        </div>
+        </section>
+        <h2>Common and Variation</h2>
+<h3>使用Bridge Pattern实现一个画图程序的主体 框架</h3>
+<ul>
+<li>图形：点、线、矩形、圆…</li>
+	<li>线形：实线、虚线、双线…</li>
+	<li>线粗细：1x、2x、4x</li>
+	<li>颜色：RGB</li>
+</ul>
+<p>？？<br>
+由于只有图形和线形是可变的类型，因此 Bridge Pattern 的两个继承树图形和线形。</p>
+<div class="highlight"><pre><code class="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Bridge</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Shape</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="n">DrawImpl</span> <span class="n">impl</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="nf">Shape</span><span class="o">(</span><span class="n">DrawImpl</span> <span class="n">impl</span><span class="o">)</span> ...</code></pre></div>
+        <span class="read-rest"><a href="/blog/2012/06/20/software-architecture-review-5.html">Read the rest of this post »</a></span>
+      </article>
+      <hr>
+    </li>
+    
+    <li>
+      <article class="post">
         <h1><a href="/blog/2012/06/20/software-architecture-review-4.html">软件架构复习笔记(4) -- 设计模式思考题(1)</a></h1>
         <section class="meta">
         <div class="inline">
