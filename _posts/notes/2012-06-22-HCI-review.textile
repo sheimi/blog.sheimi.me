@@ -670,7 +670,7 @@ h3. 星型生命周期模型 - HCI
   ** “评估”是这个模型的核心
   ** 源于开发人员的实际经验
 
-("span4")div. !http://sheimi.me/images/blog/notes/HCI-star.png!</div>
+<div class="row"><div class="span6 thumbnail">!http://sheimi.me/images/blog/notes/HCI-star.png!</div></div>
 
 h3. 可用性工程生命周期 – HCI领域
 
