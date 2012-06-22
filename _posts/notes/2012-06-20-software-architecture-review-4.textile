@@ -189,10 +189,6 @@ class DataList<T, V, W> implements IDataList<T, V, W> {
   public T getA(int i) { return list.get(i).getA(); }
   public V getB(int i) { return list.get(i).getB(); }
   public W getC(int i) { return list.get(i).getC(); }
-  public IDataList<T, V, W> getAProxy() {return new DataListProxyA<T, V, W>(this)}
-  public IDataList<T, V, W> getBProxy() {return new DataListProxyB<T, V, W>(this)}
-  public IDataList<T, V, W> getCProxy() {return new DataListProxyC<T, V, W>(this)}
-
 }
 {% endhighlight %}
 
