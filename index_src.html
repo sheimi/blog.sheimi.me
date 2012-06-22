@@ -12,7 +12,7 @@ title: Sheimi's Hive
           <h1><a href="{{post.url}}">{{ post.title }}</a></h1>
           <section class="meta">
           <div class="inline">
-            <span class="date">{{post.date | date_to_string}}</span><span>At {{post.meta.location}}</span>
+            <span class="date">{{post.date | date_to_string}}</span><span class="location">At {{post.meta.location}}</span>
           </div>
           </section>
           {{ post.content | truncatehtml: 300 }}
