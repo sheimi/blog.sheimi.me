@@ -72,7 +72,7 @@ h2. 一个模块的信息隐藏有哪两种基本类型，各自有哪些处理�
   ** additional secrets: changes
   ** You then separate each design secret by assigning it to its own class, subroutine, or other design unit.
   ** Next you isolate (encapsulate) each secret so that if it does change, the change doesn’t affect the rest of the program.
-  ** strategy pattern / state pattern
+  ** strategy pattern / state pattern / bridge pattern
 
 h2. 共性，可变性
 
