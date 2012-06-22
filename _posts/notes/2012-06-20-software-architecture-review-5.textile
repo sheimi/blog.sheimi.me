@@ -17,50 +17,19 @@ h3. 使用Bridge Pattern实现一个画图程序的主体 框架
 * 线粗细：1x、2x、4x
 * 颜色：RGB
 
-？？
-由于只有图形和线形是可变的类型，因此 Bridge Pattern 的两个继承树图形和线形。
+-由于只有图形和线形是可变的类型，因此 Bridge Pattern 的两个继承树图形和线形。-
 
-{% highlight java %}
+_问：题目中的后两个没有省略号是否意味着将来不会变化？如果不会变化的画可不可以把线的粗细和颜色RGB当作draw的属性？_
 
-public class Bridge {
-  public static void main(String[] args) {
-  }
-}
+"丁老师说：":mailto:eryuding@software.nju.edu.cn
 
-abstract class Shape {
-  private DrawImpl impl;
-  public Shape(DrawImpl impl) {
-    this.impl = impl;
-  }
-  protected void drawPoint(int px, int color) {impl.drawPoint(px, color);}
-  protected void drawLine(int px, int color) {impl.drawLine(px, color);}
-  protected void drawRect(int px, int color) {impl.drawRect(px, color);}
-  protected void drawCircle(int px, int color) {impl.drawCircle(px, color);}
-  public abstract void draw(int px, int color);
-}
+bq. 例子只是要你们思考一下Bridge的同时试着综合一下差异性处理，所以需求没有给的那么精确，如果实际写代码的话，估计线形、粗细和颜色都是draw方法的参数而已，但是如果考试的话，会专门要求上述三个方面独立处理的，也就是要有三个策略树以解决三种相互独立的差异性
 
-class Circle extends Shape {
-  public Circle(DrawImpl impl) {super(impl);}
-  public void draw(int px, int color) {drawCircle(px, color);}
-}
-...
+_问：如果使用三个策略树的话，还算是用了bridge pattern 吗？_
 
-interface DrawImpl {
-  public void drawPoint(int px, int color); 
-  public void drawLine(int px, int color); 
-  public void drawRect(int px, int color);
-  public void drawCircle(int px, int color);
-}
+"丁老师说：":mailto:eryuding@software.nju.edu.cn
 
-class SolidDrawImpl {
-  public void drawPoint(int px, int color) {}
-  public void drawLine(int px, int color) {}
-  public void drawRect(int px, int color) {}
-  public void drawCircle(int px, int color) {}
-}
-
-...
-{% endhighlight %}
+bq. 严格上讲，不是Bridge了，比Bridge更加复杂了，解决了抽象与实现分离的同时，做到了实现自身又包含多种相互独立差异性的问题。
 
 h2. Runtime Registration
 
@@ -93,11 +62,9 @@ import java.util.*;
 
 public class Ob {
   public static void main(String[] args) {
-    Observer o1 = new View1();
-    Observer o2 = new View2();
     Student s = new Student(1, "A", "B");
-    s.register(o1);
-    s.register(o2);
+    Observer o1 = new View1(s);
+    Observer o2 = new View2(s);
     View3 v = new View3(s);
     v.doSomething();
   }
@@ -105,15 +72,15 @@ public class Ob {
 
 abstract class Observer<T extends Subject> {
   protected T subject;
+  public Observer(Subject s) { s.register(this); this.subject = s; }
   public abstract void update();
-  public void setSubject(T subject) {this.subject = subject; update();}
 }
 
 abstract class Subject {
   private List<Observer> observers = new LinkedList<Observer>();
   protected void notifyObserver() { for (Observer o : observers) o.update();}
-  public void register(Observer o) {observers.add(o); o.setSubject(this);}
-  public void remove(Observer o) {observers.remove(o); o.setSubject(null);}
+  public void register(Observer o) {observers.add(o); }
+  public void remove(Observer o) {observers.remove(o); }
 }
 
 class Student extends Subject {

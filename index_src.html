@@ -6,19 +6,21 @@ title: Sheimi's Hive
 <div id="home">
   <ul class="posts">
     {% for post in site.posts %}
-    <li>
-      <article class="post">
-        <h1><a href="{{post.url}}">{{ post.title }}</a></h1>
-        <section class="meta">
-        <div class="inline">
-          <span class="date">{{post.date | date_to_string}}</span><span>At {{post.meta.location}}</span>
-        </div>
-        </section>
-        {{ post.content | truncatehtml: 300 }}
-        <span class="read-rest"><a href="{{post.url}}">Read the rest of this post »</a></span>
-      </article>
-      <hr>
-    </li>
+    {% if post.home != "no" %}
+      <li>
+        <article class="post">
+          <h1><a href="{{post.url}}">{{ post.title }}</a></h1>
+          <section class="meta">
+          <div class="inline">
+            <span class="date">{{post.date | date_to_string}}</span><span>At {{post.meta.location}}</span>
+          </div>
+          </section>
+          {{ post.content | truncatehtml: 300 }}
+          <span class="read-rest"><a href="{{post.url}}">Read the rest of this post »</a></span>
+        </article>
+        <hr>
+      </li>
+    {% endif %}
     {% endfor %}
     <li class="archives">
       <h1><a href="/archives">Archives</a></h1>

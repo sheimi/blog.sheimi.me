@@ -13,6 +13,7 @@ h2. 普通 Programming to Interface 有哪些手段？集合类型 PTI 有那些
 普通：
 * 模块化
 * 信息隐藏
+普通情况下的Programming to Interface最需要的是低耦合（即基于方法调用的耦合：控制耦合、印记耦合和数据耦合），进一步需要信息隐藏（通过方法表现外部行为，同时隐藏内部实现）
 
 集合类型：
 * Iterator Pattern
