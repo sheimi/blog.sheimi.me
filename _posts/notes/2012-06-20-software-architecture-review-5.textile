@@ -56,7 +56,8 @@ h3. 用 observer 编写程序
   ** 实现每次view3中实现修改后
   ** View1~2自动更新
 
-示例："by Kavin Yao":http://hackab.it
+示例：
+"by Kavin Yao":http://hackab.it
 "https://gist.github.com/2977200":https://gist.github.com/2977200
 
 h2. Creation
