@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 软件架构复习笔记(2) -- 设计的审美标准，设计的层次性
-category: post 
+category: note 
 published: true 
 meta:
   location: NJU 
