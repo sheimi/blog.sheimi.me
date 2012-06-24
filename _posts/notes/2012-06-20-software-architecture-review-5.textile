@@ -84,6 +84,7 @@ public class Limiton {
 {% endhighlight %}
 
 这是最简单的情况，如果需要考虑到如何选择 instance ，或者一个 instance 只能有一个外部引用，那么就要考虑其他东西了。
+An Example: "https://gist.github.com/2978425":https://gist.github.com/2978425
 
 h3. 如果有多个其他类实例的创建类型都需要子类来决定怎么办?
 
