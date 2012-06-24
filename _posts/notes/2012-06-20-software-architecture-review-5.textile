@@ -83,6 +83,31 @@ public class Limiton {
 
 {% endhighlight %}
 
+A thread safe version:
+
+{% highlight java %}
+
+import java.util.*;
+public class Limiton {
+  private static int limit = 3;
+  private static class LimitonHolder {
+    private static Limiton[] instances = new Limiton[3]; 
+    static {
+      for (int i = 0; i < limit; i++) {
+        instances[i] = new Limiton();
+      }
+    }
+  }
+  private static Random r = new Random();
+  private Limiton(){}
+  public static Limiton getInstance() {
+    int i = r.nextInt(limit);
+    return LimitonHolder.instances[i];
+  }
+}
+
+{% endhighlight %}
+
 这是最简单的情况，如果需要考虑到如何选择 instance ，或者一个 instance 只能有一个外部引用，那么就要考虑其他东西了。
 An Example: "https://gist.github.com/2978425":https://gist.github.com/2978425
 
