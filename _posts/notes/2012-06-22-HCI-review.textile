@@ -3,7 +3,6 @@ layout: post
 title: 人机交互复习笔记
 category: note 
 published: true 
-home: "no"
 meta:
   location: NJU 
 tags: [HCI, review, note]
