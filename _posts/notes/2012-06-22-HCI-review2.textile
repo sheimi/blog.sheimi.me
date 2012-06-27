@@ -668,11 +668,6 @@ h3. 星型生命周期模型 - HCI
   ** “评估”是这个模型的核心
   ** 源于开发人员的实际经验
 
-<div class="row">
-  <div class="span6 thumbnail">
-  !http://sheimi.me/images/blog/notes/HCI-star.png!
-  </div>
-</div>
 
 h3. 可用性工程生命周期 – HCI领域
 
@@ -1038,12 +1033,6 @@ h4. 预测性评估
 * 快速，成本低
 * 可能误导
 
-<div class="row">
-  <div class="span6 thumbnail">
-  !http://sheimi.me/images/blog/notes/HCI-eva-1.png!
-  </div>
-</div>
-
 h3. 技术
 
 * 观察用户
@@ -1070,18 +1059,6 @@ h4. 区分评估技术的因素
 * 响应及时性
 * 干扰程度：是否影响用户表现
 * 所需资源
-
-<div class="row">
-  <div class="span6 thumbnail">
-  !http://sheimi.me/images/blog/notes/HCI-eva-2.png!
-  </div>
-</div>
-
-<div class="row">
-  <div class="span6 thumbnail">
-  !http://sheimi.me/images/blog/notes/HCI-eva-3.png!
-  </div>
-</div>
 
 h4. 评估方法组合
 
@@ -1191,13 +1168,6 @@ h4. 折衷
 * 数据分析
 
 例子，ch10-16
-
-<div class="row">
-  <div class="span6 thumbnail">
-  !http://sheimi.me/images/blog/notes/HCI-eva-4.png!
-  </div>
-</div>
-
 
 h2. 评估 -- 询问用户和专家
 
