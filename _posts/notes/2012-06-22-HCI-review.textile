@@ -2,7 +2,7 @@
 layout: post
 title: 人机交互复习笔记
 category: note 
-published: false 
+published: true 
 home: "no"
 meta:
   location: NJU 
@@ -11,7 +11,7 @@ tags: [HCI, review, note]
 
 h2. 目录
 
-* "概述":#Overview
+* "概述":#overview
 * "交互设计基础":#Basic
 * "简易的可用性工程":#Usablility
 * "交互式系统设计过程":#Procedure
@@ -26,7 +26,7 @@ h2. 目录
 * "以用户为中心":#UCD
 
 
-h2(#Overview). 概述
+h2(#overview). 概述
 
 h3. 什么是人机交互
 
