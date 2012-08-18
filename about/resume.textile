@@ -1,7 +1,7 @@
 ---
 layout: resume
 title: Rizhen Zhang's Resume
-update: 2012/3/21
+update: 2012/8/18
 ---
 
 h1(title). {{page.title}} 
@@ -12,7 +12,7 @@ I'm an undergraduate student (senior year) in "Software Institute":http://softwa
 
 My instructor is "Tongwei Ren":http://software.nju.edu.cn/rentw. I am now a member of our team to do some research on "media cloud", our innovation project. 
 
-During the past 2.5 academic years, I have maintained 2/250(more or less) GPA grade level ranking.
+During the past 3 academic years, I have maintained 2/250(more or less) GPA grade level ranking.
 
 h2. Educational Background
 
@@ -50,7 +50,7 @@ h3. Personal Hobbies
 
 h2. Internship & Employment
 
-* None
+* 2012/07/10 - now, Internship @ APD, COE China, eBay
 
 <div class="page-break"></div>
 

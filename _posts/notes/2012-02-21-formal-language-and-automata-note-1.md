@@ -3,6 +3,7 @@ layout: post
 title:  The Note of Formal Language and Automata (1)
 category: note
 published: true
+home: no
 meta:
   location: NJU
 tags:
