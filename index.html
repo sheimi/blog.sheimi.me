@@ -151,13 +151,12 @@
 
 <p>一开始写的还算比较简单。</p>
 
-<ul>
-<li>编译java文件  javac HelloJNI.java</li>
-<li>产生C头文件   javah -jni -o hellojni.h HelloJNI</li>
-<li>新建hellojni.c 实现这个接口</li>
-</ul>
-<p>然后把hellojni.h编译成为动态库 <br>
-gcc -m32 -shared -fPIC hellojni.c -o libhellojni.so -I$JAVA_HOME...</p>
+<div class="highlight"><pre><code class="java"><span class="c1">//Here is HelloJNI.java</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloJNI</span> <span class="o">{</span>
+  <span class="kd">static</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">loadLibrary</span><span class="o">(</span><span class="s">"hellojni"</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>     <span class="c1">// I am a little...</span></code></pre></div>
           <span class="read-rest"><a href="/blog/2012/02/22/jni-and-pack-jni-into-jar.html">Read the rest of this post »</a></span>
         </article>
         <hr>

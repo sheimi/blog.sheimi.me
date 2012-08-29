@@ -1,14 +1,14 @@
 ---
 layout: resume
 title: 张日臻的简历
-update: 2012/3/23
+update: 2012/9/1
 ---
 
 h1(title). {{page.title}} 
 
 h2. 教育背景
 
-* 2009/09 -  "南京大学":http://www.nju.edu.cn "软件学院":http://www.nju.edu.cn, 大三，本科生，GPA：4.45, 2/250(大概)
+* 2009/09 -  "南京大学":http://www.nju.edu.cn "软件学院":http://www.nju.edu.cn, 大三，本科生，GPA：4.49, 1/250(大概)
 
 h2. 专业技能
 
@@ -64,7 +64,7 @@ h2. 其他信息
 *(left contact) 地址:
   ** 江苏省，南京市，鼓楼区
   ** 汉口路22号，南京大学
-  ** 南园5舍，310, 210093
+  ** 南园11舍，211, 210093
 *(left other contact) 电话: 
   ** 15298388031
 *(left other contact)  
