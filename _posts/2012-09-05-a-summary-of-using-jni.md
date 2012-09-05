@@ -15,7 +15,7 @@ tags: [tech, study, java, jni]
 示例程序
 -------
 
-这个 Demo 只要使用 OpenCV 把图片转换成 BMP 格式。虽然 Java 也可以实现，但是这里我仅仅是纯粹想用 JNI 而已。
+这个 Demo 是要使用 OpenCV 把图片转换成 BMP 格式。虽然 Java 也可以实现，但是这里我仅仅是纯粹想用 JNI 而已。
 
 [Gist Repo](https://gist.github.com/3633452)
 
@@ -157,7 +157,7 @@ all:
 
 ### Mac 平台上需要注意的问题
 
-在 Mac 平台上 g++ 其实使用的是 clang，在编译的时候，需要把 -shared 改为 -dynamiclib 然后把文件名改为 lib**.jnilib，否则 Mac 上的 Java 没有办法找到。
+在 Mac 平台上 g++ 其实使用的是 clang，在编译的时候，需要把 -shared 改为 -dynamiclib 然后把文件名改为 lib**.jnilib，否则 Mac 上的 Java 没有办法找到相应的 jni 库。
 
 ### Linux 上需要注意的问题
 
@@ -167,7 +167,7 @@ all:
 g++ -m64 -shared -fPIC cvjni.cpp /usr/local/lib/libopencv_core.so /usr/local/lib/libopencv_highgui.so -o libcvjni.so -I/usr/local/include -I/usr/lib/jvm/jdk1.6.0_35/include -I/usr/lib/jvm/jdk1.6.0_35/include/linux
 {% endhighlight %}
 
-不知道为什么 g++ 不再生成动态库的时候检查一下依赖关系呢。
+不知道为什么 g++ 不在生成动态库的时候检查一下依赖关系呢。
 
 
 ### OpenJDK 的问题
@@ -182,6 +182,6 @@ OpenJDK 毕竟不是官方的 JDK 版本，在使用jni的时候，下面一句�
 总结
 ----
 
-总的感觉是 JNI 真的不是那么好用，不像 Python 和 C 那么亲密无间，有个专门的包用来编译写的 C extension。还有就是以后能用 Oracle 的 JDK 就用它的，非官方版本的万一出了什么问题，自己都还不知道，到网上查也不一定能够查到想要的答案。
+总的感觉是 JNI 真的不是那么好用，不像 Python 和 C 那么亲密无间，有个专门的包用来编译写的 C extension。还有就是以后能用官方的 JDK 就用官方的，非官方版本的万一出了什么问题，到网上查也不一定能够查到想要的答案。
 
 
