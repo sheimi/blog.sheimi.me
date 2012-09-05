@@ -1,6 +1,6 @@
 ---
 layout: post
-title: JNI 使用小节
+title: JNI 使用小结
 category: blog
 meta:
   location: NJU
