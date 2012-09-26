@@ -19,6 +19,7 @@ $(document).ready(function() {
     }   
   }
   set_footer()
+  window.set_footer = set_footer
   $(window).resize(set_footer)
   $(window).scroll(set_footer)
 
@@ -120,6 +121,7 @@ if (typeof history.pushState !== 'undefined') {
           if (location.pathname === '/archives/tags.html') {
             filter_post(location.href)
           }
+          set_footer()
           loadDiscus()
         })
       }
