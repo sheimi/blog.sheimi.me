@@ -9,6 +9,7 @@
   <!-- Homepage CSS -->
   <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
   <script src="/js/jquery-1.7.1.min.js"></script>
+  <script src="/js/jquery.easing.1.3.js"></script>
   <script src="/js/modernizr.js"></script>
 </head>
 <body>
@@ -40,7 +41,9 @@
 <section class="container main-content">
   <div class="row">
     <section class="site-main span10 offset1">
-    {{ content }}
+      <div class="site-main-inner">
+        {{ content }}
+      </div>
     </section>
   </div>
 </section>

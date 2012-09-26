@@ -102,20 +102,27 @@ if (typeof history.pushState !== 'undefined') {
   }
 
   function load_page(href, midaction) {
-    $('.site-main').fadeOut(function() {
-      $.get(href).done(function(data) {
-        var content = $('.site-main', data).html()
-        $('.site-main').html(content)
-        $('.site-main').fadeIn()
-        if (typeof midaction !== 'undefined') {
-          midaction()
-        }
+    $('.site-main-inner').animate({
+      'margin-left': '-=1000'
+      , 'opacity': 0
+    }, {
+      easing: 'easeInOutExpo' 
+      , complete: function() {
+        $('.site-main').hide()
+        $.get(href).done(function(data) {
+          var content = $('.site-main', data).html()
+          $('.site-main').html(content)
+          $('.site-main').fadeIn()
+          if (typeof midaction !== 'undefined') {
+            midaction()
+          }
 
-        if (location.pathname === '/archives/tags.html') {
-          filter_post(location.href)
-        }
-        loadDiscus()
-      })
+          if (location.pathname === '/archives/tags.html') {
+            filter_post(location.href)
+          }
+          loadDiscus()
+        })
+      }
     })
   }
 
