@@ -102,18 +102,20 @@ if (typeof history.pushState !== 'undefined') {
   }
 
   function load_page(href, midaction) {
-    return $.get(href).done(function(data) {
-      var content = $('.site-main', data).html()
-      $('.site-main').html(content)
+    $('.site-main').fadeOut(function() {
+      $.get(href).done(function(data) {
+        var content = $('.site-main', data).html()
+        $('.site-main').html(content)
+        $('.site-main').fadeIn()
+        if (typeof midaction !== 'undefined') {
+          midaction()
+        }
 
-      if (typeof midaction !== 'undefined') {
-        midaction()
-      }
-
-      if (location.pathname === '/archives/tags.html') {
-        filter_post(location.href)
-      }
-      loadDiscus()
+        if (location.pathname === '/archives/tags.html') {
+          filter_post(location.href)
+        }
+        loadDiscus()
+      })
     })
   }
 
