@@ -4,7 +4,7 @@ layout: default
 
 <article id="post">
 
-  <h1><a href="{{page.url}}">{{ page.title }}</a></h1>
+  <h1><a href="{{page.url}}" class="inner-link">{{ page.title }}</a></h1>
   <section class="meta">
     <div class="inline">
       <span class="date">{{page.date | date_to_string}}</span><span>At {{page.meta.location}}</span>
@@ -17,14 +17,17 @@ layout: default
   <hr>
   <section class="end-tag">
     <span class="author">Posted by Sheimi</span>
-    <span class="category">Category: <a href="http://blog.sheimi.me/archives/#{{page.category}}">{{page.category}}</a></span>
+    <!--<span class="category">Category: <a
+        href="/archives/#{{page.category}}"-->
+    <span class="category">Category: <a href="/archives"
+        class="inner-link">{{page.category}}</a></span>
     <span class="tags">
       Tags: 
       {% for tag in page.tags %}
       {% if forloop.index != 1 %}
       :
       {% endif %}
-      <a href="/archives/tags.html#{{tag}}">{{tag}}</a>
+      <a href="/archives/tags.html#{{tag}}" class="inner-link">{{tag}}</a>
       {% endfor %}
     </span>
   </section>
@@ -39,7 +42,7 @@ layout: default
     {% for post in site.related_posts limit:3 %}
     <li class="row">
       <span class="span2">{{ post.date | date_to_string }} &raquo;</span>
-      <span class="span4 offset1"><a href="{{ post.url }}">{{ post.title }}</a></span>
+      <span class="span4 offset1"><a href="{{ post.url }}" class="inner-link">{{ post.title }}</a></span>
     </li>
     {% endfor %}
   </ul>
