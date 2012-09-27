@@ -114,6 +114,8 @@ if (typeof history.pushState !== 'undefined') {
           var content = $('.site-main', data).html()
           $('.site-main').html(content)
           $('.site-main').fadeIn()
+          var title = $('title', '<div>' + data + '</div>').text()
+          $('title').text(title)
           if (typeof midaction !== 'undefined') {
             midaction()
           }
@@ -129,6 +131,8 @@ if (typeof history.pushState !== 'undefined') {
   }
 
   $('a.inner-link').live('click', function(e) {
+    if (e.ctrlKey || e.metaKey) 
+      return
     e.preventDefault();
     var cur = e.currentTarget;
     var href = $(cur).attr('href')
