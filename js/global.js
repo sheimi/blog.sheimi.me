@@ -104,10 +104,11 @@ if (typeof history.pushState !== 'undefined') {
 
   function load_page(href, midaction) {
     $('.site-main-inner').animate({
-      'margin-left': '-=1000'
+      'margin-left': '-=300'
       , 'opacity': 0
     }, {
       easing: 'easeInOutExpo' 
+      , duration: 400
       , complete: function() {
         $('.site-main').hide()
         $.get(href).done(function(data) {
