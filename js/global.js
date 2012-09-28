@@ -103,6 +103,7 @@ if (typeof history.pushState !== 'undefined') {
   }
 
   function load_page(href, midaction) {
+    $('#loading-wrapper').fadeIn()
     $('.site-main-inner').animate({
       'margin-left': '-=300'
       , 'opacity': 0
@@ -114,6 +115,7 @@ if (typeof history.pushState !== 'undefined') {
         $.get(href).done(function(data) {
           var content = $('.site-main', data).html()
           $('.site-main').html(content)
+          $('#loading-wrapper').fadeOut()
           $('.site-main').fadeIn()
           var title = $('title', '<div>' + data + '</div>').text()
           $('title').text(title)
