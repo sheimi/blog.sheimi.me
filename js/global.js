@@ -23,19 +23,27 @@ $(document).ready(function() {
   $(window).resize(set_footer)
   $(window).scroll(set_footer)
 
-  var fixed = false
   function set_header() {
     var sth = $(window).scrollTop()
-    if (!fixed && sth > 0) {
+    if (sth >= 31) {
       $(".header").addClass("scroll")
-      fixed = !fixed
-    }
-    if (fixed && sth == 0) {
+      $("body").addClass("scroll")
+      var opacity = (sth - 30) / 10
+      if (opacity > 0.8) {
+        opacity = 0.8 
+      }
+      $('.sdw').css('opacity', opacity)
+    } else {
+      $("body").removeClass("scroll")
       $(".header").removeClass("scroll")
-      fixed = !fixed
     }
   }
   $(window).scroll(set_header)
+  $('.header').affix({
+    offset: {
+      top: 30
+    }
+  })
 });
 
 $(document).ready(function() {
