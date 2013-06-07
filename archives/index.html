@@ -1,0 +1,80 @@
+---
+layout: default
+title: Sheimi's Hive 
+homework:
+  - ['21 Oct 2012', 'tiny-lex', 'Compiler Lab: A Tiny Lexical Parser', 'page']
+  - ['09 Apr 2012', 'chat-everywhere', 'Web Bonus: Chat-Everywhere']
+  - ['12 May 2012', 'online-shop', 'Web Homework: Online-Shop']
+  - ['05 May 2012', 'ipc-homework', 'Linux Homework: IPC-Homework']
+  - ['21 Feb 2012', 'dessert-house', 'MIS Homework: Dessert House']
+  - ['18 Feb 2012', 'tiny-find', 'Linux Homework: Tiny-Find', 'page']
+  - ['06 Jul 2011', 'swing-texteditor', 'Software Construction Homework: TextEditor']
+  - ['10 Jun 2011', 'oedu', 'SE Homework: Oedu']
+projects:
+  - ['25 Feb 2012', 'tiny-server', 'A Tiny Http Server: Tiny-Server']
+  - ['01 Feb 2012', 'word-log', 'To Log Words: Word Log']
+  - ['01 Dec 2011', 'yurss', 'A Chrome Extension: YuRss']
+  - ['10 Oct 2010', 'danger-ko', 'A Android Application: Danger KO']
+---
+<section id="blog-posts" class="shadow-box">
+  <h2 id="blog">Blog Posts</h2>
+  <ul class="posts">
+    {% for post in site.posts %}
+      {% if post.category == 'blog' %}
+      <li class="row">
+        <span class="span2 date">{{ post.date | date_to_string }} &raquo;</span>
+        <span class="span4 offset1"><a href="{{ post.url }}" class="inner-link">{{ post.title }}</a></span>
+      </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</section>
+<section id="blog-notes" class="shadow-box">
+  <h2 id="note">Notes</h2>
+  <ul class="posts">
+    {% for post in site.posts %}
+      {% if post.category == 'note' %}
+      <li class="row">
+        <span class="span2 date">{{ post.date | date_to_string }} &raquo;</span>
+        <span class="span4 offset1"><a href="{{ post.url }}" class="inner-link">{{ post.title }}</a></span>
+      </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</section>
+<section id="home-works" class="shadow-box">
+  <h2 id="homework">Homework</h2>
+  <ul class="posts">
+    {% for hw in page.homework%}
+    <li class="row">
+      <span class="span2 date">{{hw[0]}} &raquo;</span>
+      <span class="span4 offset1">
+        {% if hw[3] == 'page' %}
+        <a href="http://projects.sheimi.me/{{ hw[1] }}" target="_blank">
+          {{ hw[2] }}
+        </a>
+        {% else %}
+        <a href="https://github.com/sheimi/{{ hw[1] }}" target="_blank">
+          {{ hw[2] }}
+        </a>
+        {% endif %}
+      </span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+<section id="tiny-projects" class="shadow-box">
+  <h2 id="projects">Tiny Projects</h2>
+  <ul class="posts">
+    {% for pj in page.projects%}
+    <li class="row">
+      <span class="span2 date">{{pj[0]}} &raquo;</span>
+      <span class="span4 offset1">
+        <a href="https://github.com/sheimi/{{ pj[1] }}" target="_blank">
+          {{ pj[2] }}
+      </a>
+      </span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

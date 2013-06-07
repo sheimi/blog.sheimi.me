@@ -1,0 +1,33 @@
+---
+layout: default
+title: Sheimi's Hive 
+---
+
+<div id="home">
+  <ul class="posts">
+    {% for post in site.posts %}
+    {% if post.home != false %}
+      <li class="post-li">
+        <article class="post shadow-box">
+          <div class="clearfix meta-wrapper">
+            <div class="meta">
+              <span class="date">{{post.date | date_to_string}}</span> - <span class="location">At {{post.meta.location}}</span>
+            </div>
+          </div>
+          <h1><a href="{{post.url}}" class="inner-link">{{ post.title }}</a></h1>
+          <hr>
+          {{ post.content | truncatehtml: 300 }}
+          <span class="read-rest"><a href="{{post.url}}" class="inner-link">Read the rest of this post »</a></span>
+        </article>
+      </li>
+    {% endif %}
+    {% endfor %}
+    <li class="archives">
+      <h1><a href="/archives" class="inner-link">Archives</a></h1>
+    </li>
+  </ul>
+</div>
+<a id="github-flag" href="http://github.com/{{ site.owner.github }}"
+  style="z-index:1000;position: absolute;top:0;left:0;" target="_blank">
+  <img style="border:0;" src="/static/images/github.png" alt="Fork me on GitHub">
+</a>
