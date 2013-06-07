@@ -31,13 +31,5 @@ filterPost = (url) ->
   return tag
 
 $(window).on 'popstate', (e) ->
-  e = e.originalEvent
-  state = e.state
-  if not state
-    return
-  if state.type isnt 'tags'
-    return
-  if $('.tag-cloud').length is 0
-    loadPage state.path
-  else
+  if location.href.indexOf 'tags' >= 0
     filterPost location.href

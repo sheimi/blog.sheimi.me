@@ -50,19 +50,7 @@
   };
 
   $(window).on('popstate', function(e) {
-    var state;
-
-    e = e.originalEvent;
-    state = e.state;
-    if (!state) {
-      return;
-    }
-    if (state.type !== 'tags') {
-      return;
-    }
-    if ($('.tag-cloud').length === 0) {
-      return loadPage(state.path);
-    } else {
+    if (location.href.indexOf('tags' >= 0)) {
       return filterPost(location.href);
     }
   });
