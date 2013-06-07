@@ -1,0 +1,20 @@
+markdown: rdiscount
+pygments: true
+paginate: 5
+
+name: Sheimi's Hive
+url: http://blog.sheimi.me
+owner: 
+  name: Sheimi
+  email: sheimi.zhang@gmail.com
+  github: sheimi
+  twitter: sheimi_nju
+  google_plus: '102631912588694400657'
+
+school:
+  name: Nanjing University
+  website: http://www.nju.edu.cn/
+department:
+  name: Software Institute
+  website: http://software.nju.edu.cn/
+ga: UA-29300274-1

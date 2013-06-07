@@ -1,0 +1,91 @@
+* {
+  font-family: arial, sans-serif;
+}
+body {
+  margin: 0 auto;
+  width: 820px;
+  padding: 30px;
+  box-shadow: 0 0 20px #888, inset 0 0 3px #eee;
+}
+a , a:visited {
+  color: #8085C1;
+}
+a:hover {
+  color: #00a;
+}
+ul {
+  list-style: none;
+  padding-left: 20px;
+}
+
+li {
+  padding: 3px;
+}
+
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.clear {
+  clear: both;
+}
+
+.title {
+  text-align: center;
+}
+h1, h2, h3{
+  /*color: #D67813;*/
+  color: rgba(200, 100, 10, 0.65);
+}
+h1 {
+  font-size: 28px;
+}
+h2 {
+  border-bottom: solid 1px #D67813;
+  font-size: 22px;
+}
+h3 {
+  font-size: 18px;
+}
+table {
+  padding-left: 20px;
+  font-size: 14px;
+}
+table td {
+  padding: 5px;
+  border-bottom: 1px solid rgba(200, 120, 20, 0.25); 
+}
+table tr:first-child td {
+  border-top: 1px solid rgba(200, 120, 20, 0.25);
+}
+
+table tr td:first-child {
+  width: 120px;
+}
+table tr td:first-child + td {
+  width: 100px
+}
+
+.contact {
+  font-size: 13px;
+  color: #777;
+}
+.contact li {
+  padding: 1px;
+}
+span.contact-label {
+  width: 80px;
+  float: left;
+}
+
+.footer.update {
+  font-size: 10px; 
+  color: #777;
+  margin-top: 20px;
+}
+
+.other.left {
+  margin-left: 70px;
+}
