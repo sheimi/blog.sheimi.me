@@ -1,0 +1,305 @@
+---
+layout: post
+title: 软件架构复习笔记(4) -- 设计模式思考题(1)
+category: note 
+home: no
+published: true 
+meta:
+  location: NJU 
+tags: [architecture, review, note]
+---
+
+h2. 集合类型Programming to Interface
+
+题目：有一个数据列表DataList,其基本类型是3维向量ThreeD<x,y,z>，1）用Java语言实现该数据列表的数据结构。假设有三个外部对象A,B,C,分别对其x、y、 z维度感兴趣,希望访问DataList在相应维 度的数据并进行处理。2)请定义其对外的数据接口。分别使用Iterator与Proxy。（PS：Iterator，Proxy需要自己实现）
+
+Iterator
+
+{% highlight java %}
+import java.util.*;
+
+public class Iter {
+  public static void main(String[] args) {
+    Aggregate<Integer, Integer, Integer> ag = new DataList<Integer, Integer, Integer>();
+    ((DataList)ag).add(new ThreeD<Integer, Integer, Integer>(1, 2, 3));
+    ((DataList)ag).add(new ThreeD<Integer, Integer, Integer>(1, 2, 3));
+    ((DataList)ag).add(new ThreeD<Integer, Integer, Integer>(1, 2, 3));
+    Iterator<Integer> ia = ag.createIteratorA();
+    while (ia.next() != null) {
+      System.out.println(ia.currentItem());
+    }
+    Iterator<Integer> ib = ag.createIteratorB();
+    while (ib.next() != null) {
+      System.out.println(ib.currentItem());
+    }
+    Iterator<Integer> ic = ag.createIteratorC();
+    while (ic.next() != null) {
+      System.out.println(ic.currentItem());
+    }
+  }
+}
+
+class ThreeD<T, V, W> {
+
+  private T t;
+  private V v;
+  private W w;
+
+  public ThreeD(T t, V v, W w) {
+    this.t = t;
+    this.v = v;
+    this.w = w;
+  }
+
+  public T getA() { return t;}
+  public V getB() { return v;}
+  public W getC() { return w;}
+}
+
+interface Aggregate<T, V, W> {
+  public Iterator<T> createIteratorA();
+  public Iterator<V> createIteratorB();
+  public Iterator<W> createIteratorC();
+}
+
+interface Iterator<T> {
+  public T first();
+  public T next();
+  public boolean isDone();
+  public T currentItem();
+}
+
+abstract class IteratorABC<T> implements Iterator<T>{
+  protected DataList ag;
+  protected int i;
+  public IteratorABC(DataList ag) {
+    this.ag = ag;
+    i = -1;
+  }
+  public T first() { i = 0; return currentItem();}
+  public T next() {i += 1; return currentItem();}
+  public boolean isDone() {return i >= ag.size() ;}
+  public abstract T currentItem();
+}
+
+
+class IteratorA<T> extends IteratorABC<T>{
+  public IteratorA(DataList ag) {
+    super(ag);
+  }
+  public T currentItem() { if (isDone()) return null; return (T)ag.get(i).getA();}
+}
+
+class IteratorB<T> extends IteratorABC<T>{
+  public IteratorB(DataList ag) {
+    super(ag);
+  }
+  public T currentItem() { if (isDone()) return null; return (T)ag.get(i).getB();}
+}
+
+class IteratorC<T> extends IteratorABC<T>{
+  public IteratorC(DataList ag) {
+    super(ag);
+  }
+  public T currentItem() { if (isDone()) return null; return (T)ag.get(i).getC();}
+}
+
+class DataList<T, V, W> implements Aggregate<T, V, W> {
+
+  private ArrayList<ThreeD<T, V, W>> list = new ArrayList<ThreeD<T, V, W>>();
+  private IteratorA<T> ia = new IteratorA<T>(this);
+  private IteratorB<V> ib = new IteratorB<V>(this);
+  private IteratorC<W> ic = new IteratorC<W>(this);
+
+  public void add(ThreeD<T, V, W> d) { list.add(d); }
+  public ThreeD<T, V, W> get(int index) { return list.get(index); }
+  public int size() {return list.size();}
+
+  public Iterator<T> createIteratorA() { return ia; }
+  public Iterator<V> createIteratorB() { return ib; }
+  public Iterator<W> createIteratorC() { return ic; }
+}
+{% endhighlight %}
+
+Proxy
+
+{% highlight java %}
+import java.util.*;
+
+public class Proxy {
+  public static void main(String[] args) {
+  }
+}
+
+class ThreeD<T, V, W> {
+
+  private T t;
+  private V v;
+  private W w;
+
+  public ThreeD(T t, V v, W w) {
+    this.t = t;
+    this.v = v;
+    this.w = w;
+  }
+
+  public T getA() { return t;}
+  public V getB() { return v;}
+  public W getC() { return w;}
+}
+
+interface IDataList<T, V, W> {
+  public T getA(int i) throws Exception;
+  public V getB(int i) throws Exception;
+  public W getC(int i) throws Exception;
+  public int size();
+}
+
+abstract class DataListProxy<T, V, W> implements IDataList<T, V, W> {
+  protected IDataList<T, V, W> real;
+  public DataListProxy(IDataList<T, V, W> real) {this.real = real;}
+  public T getA(int i) throws Exception {throw new Exception(); }
+  public V getB(int i) throws Exception {throw new Exception(); }
+  public W getC(int i) throws Exception {throw new Exception(); }
+  public int size() { return real.size(); }
+}
+
+
+class DataListProxyA<T, V, W> extends DataListProxy<T, V, W> {
+  public DataListProxyA(IDataList<T, V, W> real) {super(real);}
+  public T getA(int i) throws Exception {return real.getA(i); }
+}
+
+class DataListProxyB<T, V, W> extends DataListProxy<T, V, W> {
+  public DataListProxyB(IDataList<T, V, W> real) {super(real);}
+  public V getB(int i) throws Exception {return real.getB(i); }
+}
+
+class DataListProxyC<T, V, W> extends DataListProxy<T, V, W> {
+  public DataListProxyC(IDataList<T, V, W> real) {super(real);}
+  public W getC(int i) throws Exception {return real.getC(i); }
+}
+
+class DataList<T, V, W> implements IDataList<T, V, W> {
+
+  private ArrayList<ThreeD<T, V, W>> list = new ArrayList<ThreeD<T, V, W>>();
+
+  public void add(ThreeD<T, V, W> d) { list.add(d); }
+  public ThreeD<T, V, W> get(int index) { return list.get(index); }
+  public int size() {return list.size();}
+  public T getA(int i) { return list.get(i).getA(); }
+  public V getB(int i) { return list.get(i).getB(); }
+  public W getC(int i) { return list.get(i).getC(); }
+}
+{% endhighlight %}
+
+h2. Decorator, OCP
+
+题目：对如下继承树进行扩展，Border（Plain，3D, Fancy) ScrollBar(Horiz, Vert)
+
+{% highlight java %}
+abstract class VisualComponent {
+  void draw();
+  void resize();
+}
+class TextView extends VisualComponent {
+  void draw() {...}
+  void resize() {...}
+}
+class StreamVidoView  VisualComponent {
+  void draw() {...}
+  void resize() {...}
+}
+{% endhighlight %}
+
+解答：
+
+{% highlight java %}
+abstract class Decorator extends VisualComponent {
+  VisualComponent vc;
+  Decorator(VisualComponent vc) {this.vc = vc;}
+  void draw() {vc.draw();}
+  void resize() {vc.resize();}
+}
+
+abstract class Border extends Decorator {
+  void draw() {super.draw(); drawBorder();}
+  abstract void drawBorder();
+}
+
+class PlainBorder extends Border {
+  void drawBorder() {...}
+}
+
+...
+{% endhighlight %}
+
+
+h2. Information Hiding & Common and Variation
+
+h3. 题目：比较 facade 与 controller 的异同
+
+相同：
+* 它们自己不进行一些逻辑处理，都只是进行一些任务转发的功能
+* 它们都是对两个模块或外部和内部进行解耦
+* 都是抽出来的一层，屏蔽了底层的接口
+
+不同：
+* facade 主要关注的是模块之间的解耦和信息隐藏，为一个子系统提供一个简单的，外在的接口，任意两个之间，只要有一些解耦的需求，都可以用 facade 。而 controller 的目的是对应用户需求，职责分配，主要处理当来了一个请求或什么的，具体要分配给那个对象取。
+* （yy）facade由于是为了模块的解耦，在两个基本的类之间做一个 facade 是没有意义的。而 controller 目的是为了让用户的请求和处理之间彼此独立，所以可以存在两个类之间有一个controller。
+* Façade是个比较奇怪的模式，它没有Solution Structure，因为它只是一种思想，一种对局部复杂结构进行包装和简化，以达到信息隐藏的一种想法而已。
+
+h3. 题目：在策略模式中, 为什么使用“聚合”而不是 “关联”关系?
+
+聚合可以说是一种比较强的关联，聚合指出在对象 A 中需要有 B 的应用，而关联仅仅是一种使用关系。由于关联没有规定 A 中有B的引用，那么如果 策略模式使用关联来实现，那么就无法解决综合使用多个策略的问题，它要么使用一个策略，要么策略的个数是确定的。 
+
+策略模式相比，如果 context 不包含 strategy 就语义上出问题了，因为 strategy 是从 context 中分割出来的，应该是 context 的一部分。
+
+
+h3. Common and Variation
+
+问题：如果一个对象集之间除共性外,有超过2个的差异行为,如何处理?
+两棵策略树
+
+问题：如果一个对象集的部分行为组存在差异性,如何处理?
+把行为组放在策略中
+
+问题：问题：如果一个对象集的部分属性(以及依赖于这些属性的方法)存在差异性,如何处理?
+把这些属性和方法放在策略中
+
+问题：如果一个对象集的一个行为需要协作对象来完成,但是它们的协作对象存在差异性,如何处理?
+在协作对象上加上一个adapter组成策略（Command Pattern）
+
+问题：如果一个对象集的行为因为属性的取值而存在差异性,如何处理?
+state pattern
+
+h3. Compare strategy and state
+
+from "stackoverflow":http://stackoverflow.com/questions/1658192/what-is-the-difference-between-strategy-design-pattern-and-state-design-pattern
+
+The Strategy pattern is really about having a different implementation that accomplishes (basically) the same thing, so that one implementation can replace the other as the strategy requires. For example, you might have different sorting algorithms in a strategy pattern. The callers to the object does not change based on which strategy is being employed, but regardless of strategy the goal is the same (sort the collection).
+
+The State pattern is about doing different things based on the state, while leaving the caller releaved from the burden of accommodating every possible state. So for example you might have a getStatus() method that will return different statuses based on the state of the object, but the caller of the method doesn't have to be coded differently to account for each potential state.
+
+
+h4. "1 of N" or "M of N"? 
+
+strategy M of N, state 通常是 1 of N ，但是在并发的情况下是 M of N
+
+h4. Who control the change of variation?
+
+That is the difference between _"Context decide changing of ConcreteState object"_ and _"ConcreteState desice changing of Concrete State"_ 有什么不同
+State 是由自己控制变化的，而 strategy 通常是由 context 控制变化的。State 自己控制变化的过程是隐式的，外部不知道现在的状态和下一个状态将要是什么，而由 context 控制变化的时候，是能够控制变化的。通常 Strategy 都是完成的同一个功能，State 不一定。
+
+
+h4. How to change? Fixed rules of configuration files
+
+都可以，但是个人认为 state 通常是 fixed rules，strategy 通常是 configuration files
+
+h4. Crating and destroying policy?
+
+state: 除了第一个之外，都是由 state 自己创建，并且是由 state 自己销毁的。
+strategy: 是由 Client 创建，也由 Client 销毁
+
+
+To Be Continued ~~~

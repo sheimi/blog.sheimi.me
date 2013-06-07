@@ -1,0 +1,125 @@
+---
+layout: post
+title: 软件架构复习笔记(4) -- 设计模式思考题(2)
+category: note 
+home: no
+published: true 
+meta:
+  location: NJU 
+tags: [architecture, review, note]
+---
+
+h2. Common and Variation
+
+h3. 使用Bridge Pattern实现一个画图程序的主体 框架
+
+* 图形：点、线、矩形、圆... 
+* 线形：实线、虚线、双线... 
+* 线粗细：1x、2x、4x
+* 颜色：RGB
+
+-由于只有图形和线形是可变的类型，因此 Bridge Pattern 的两个继承树图形和线形。-
+
+_问：题目中的后两个没有省略号是否意味着将来不会变化？如果不会变化的画可不可以把线的粗细和颜色RGB当作draw的属性？_
+
+"丁老师说：":mailto:eryuding@software.nju.edu.cn
+
+bq. 例子只是要你们思考一下Bridge的同时试着综合一下差异性处理，所以需求没有给的那么精确，如果实际写代码的话，估计线形、粗细和颜色都是draw方法的参数而已，但是如果考试的话，会专门要求上述三个方面独立处理的，也就是要有三个策略树以解决三种相互独立的差异性
+
+_问：如果使用三个策略树的话，还算是用了bridge pattern 吗？_
+
+"丁老师说：":mailto:eryuding@software.nju.edu.cn
+
+bq. 严格上讲，不是Bridge了，比Bridge更加复杂了，解决了抽象与实现分离的同时，做到了实现自身又包含多种相互独立差异性的问题。
+
+h2. Runtime Registration
+
+h3. 与真正自实现的Event Style相比,ObserverPattern的不同在哪里?
+
+* Event Style 中需要管理多种 Event 事件；而 ObserverPattern 只通常只需要管理一种，即自己的变化
+* Event Style 中 EventRoute 有储存关于 Event 和 ObserverList 的一个 Dictionary；Observer 中 Subject 只有一个列表
+* Event Style 中 EventRoute 只是一个事件路由，没有除了一个 Dictionary 没有其他的属于自己的信息；而 Observer 中的 Subject 包含有 Subject 信息
+* Event Style 中的事件发起的原因是第三方触发了事件；而 Observer 中 update 触发的原因是 Subject 自己的数据发生了变化，虽然是由于第三方的修改，但是时间是由自己触发的
+
+h3. 如果众多Observer的接口不相同怎么办? 不都是update接口,甚至不是同一种类型
+
+使用一个adapter使它们的接口统一
+
+h3. 用 observer 编写程序
+
+要求：
+* Model: student（ID, name, birthday)
+* View:
+  ** View1:显示ID+name
+  ** View2:显示ID+birthday
+  ** View3:修改student的三个列
+* View1~2为observer,model为subject 
+  ** 实现每次view3中实现修改后
+  ** View1~2自动更新
+
+示例：
+"by Kavin Yao":http://hackab.it : "https://gist.github.com/2977200":https://gist.github.com/2977200
+
+h2. Creation
+
+h3. 以singleton为基础,编写程序解决上述问题(Limited instance permited)
+
+{% highlight java %}
+import java.util.*;
+public class Limiton {
+  private static int limit = 3;
+  private static Limiton[] instances = new Limiton[3]; 
+  private static Random r = new Random();
+  static {
+    for (int i = 0; i < limit; i++) {
+      instances[i] = new Limiton();
+    }
+  }
+  private Limiton(){}
+  public static Limiton getInstance() {
+    int i = r.nextInt(limit);
+    return instances[i];
+  }
+}
+
+{% endhighlight %}
+
+A thread safe version:
+
+{% highlight java %}
+
+import java.util.*;
+public class Limiton {
+  private static int limit = 3;
+  private static class LimitonHolder {
+    private static Limiton[] instances = new Limiton[3]; 
+    static {
+      for (int i = 0; i < limit; i++) {
+        instances[i] = new Limiton();
+      }
+    }
+  }
+  private static Random r = new Random();
+  private Limiton(){}
+  public static Limiton getInstance() {
+    int i = r.nextInt(limit);
+    return LimitonHolder.instances[i];
+  }
+}
+
+{% endhighlight %}
+
+这是最简单的情况，如果需要考虑到如何选择 instance ，或者一个 instance 只能有一个外部引用，那么就要考虑其他东西了。
+An Example: "https://gist.github.com/2978425":https://gist.github.com/2978425
+
+h3. 如果有多个其他类实例的创建类型都需要子类来决定怎么办?
+
+在工厂方法里的里面使用多个 factoryMethod，比如 facotryMethodA，factoryMethodB
+
+h3. 如果多个其他类实例之间存在类型依赖该怎么办?
+
+如果类的种类（抽象类）的个数是确定的、不会轻易改变(也就是 Product 的种类是相对稳定的)，并且类的依赖呈现 product family，那使用 Abstract Factory
+
+
+
+
