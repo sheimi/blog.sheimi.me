@@ -1,0 +1,243 @@
+---
+layout: post
+title: 软件架构复习笔记(1) -- 名词解释
+category: note 
+published: true 
+home: no
+meta:
+  location: NJU 
+tags: [architecture, review, note]
+---
+
+h2. 设计的5个准则
+
+准则1：用“美”的方式实现功能，是设计的价值
+准则2：设计的复杂度 = 事物复杂度 + 载体与事物的适配复杂度
+准则3：设计重在内部结构，而不是外在表现
+* 内部结构：为了实现外部的功能，进行的内部的安排，主要关注质量
+* 外部表现：对外的功能（能力），满足职责
+
+准则4：只有高层设计良好，底层设计才能良好
+
+* The better early design, the easier detailed design will be
+* 高层设计的质量要到最底层才能准确验证
+* 层次间是迭代而非瀑布，线性关系
+* 不要在完成高层设计之后再进行底层设计
+* 要尽早有可验证的原型
+
+准则5：只有写完并测试代码之后，才能算是完成了设计（构造问题）
+
+h2. 4+1 View
+
+Logic View: 
+* the object model of the design (when an oo design method is used)
+* system is decomposed into a set of key abstractions, taken objects or object classes
+* {Component, connector, configuration}
+* viewer: End-users
+* considers: functional requirements(what the system should provide in terms of services to its users)
+
+Process View: 
+* to capture the concurrency and synchronization aspects of the design
+* process: a grouping of tasks that form an executable unit
+* viewer: Integrators
+* considers: non-functional requirements(concurrency, performance, scalability)
+* multiple level of abstractions, a logical network of processes at the highest level
+
+Development View: 
+* basis of a line of product, subsystem decomposition
+* to describe the static organization of the software in its development environment
+* represented by module and subsystem diagrams
+* viewer: Programmers and Software Managers
+* considers: software module organization(Hierarchy of layers, software management, reuse, constraints of tools)
+
+Physical View: to describe the mapping of the software onto the hardware and reflects its distributed aspect
+* mapping the software to the hardware
+* Topology and Communication
+* viewer: System Engineers
+* considers: Non-functional req. regarding to underlying hardware (avalibility, reliability(fault-tolerance), performance(throughput) and scalability)
+
+Scenarios
+* put it all together
+* viewer: all users of other views and evaluators
+* consider: system consistency, validity
+* help architect during the architecture design
+* help illustrate and validate the document
+
+h2. OO 协作与协作设计（理解）
+
+h3. What's Collaboration  
+  
+An application can be broken down into a set of many different behaviors. 
+Each such behavior is implemented by a distinct collaboration between the objects of the application
+*_Every collaboration, no matter how small or large, always implements a behavior of the application_*
+
+Imagine an object-oriented application as a network of objects connected by relationships. Collaborations are the patterns of messages that play through that network in pursuit of a particular behavior. The collaboration is distributed across the network of objects, and so does not exist in any one place
+
+h3. Collaboration Design
+
+Identify collaboration:
+
+* system behavior from use-case
+* from software architecture design(Module interface and Process communication)
+
+Design collaboration(of system behaviors: control structures):
+
+* two ways: _Dispersed_ and _Centralized_
+  ** Dispersed: Logics of a system behavior is spread widely through the objects network
+  ** Centralized: One extra controller record all logics of a system behavior
+* Control Styles: _Dispersed_, _Centralized_, _Delegated_
+* Centralized Control: 
+  ** Easy to find where the decision are made
+  ** Easy to see how decision are made and to alter the decision-making process
+  ** Controllers may become bloated (large, complex and hard to understand, maintain, test)
+  ** Controller may treat other components as data repositories
+  ** Increase coupling destroys information hiding
+* Delegated Control:
+  ** Controller are coupled to fewer components, reducing coupling
+  ** Information is hidden better
+  ** easier to divide into layers
+  ** Delegated control is the _preferred control_ style
+* Dispersed Control:
+  ** having many components holding little data and having few responsibilities
+  ** hard to understand the flow of control
+  ** unable to do much on their own, increasing coupling
+  ** hard to hide information
+  ** cohesion is usually poor
+  ** few modularity principles can be satisfied
+
+Heuristics:
+
+* Avoid interaction designs where most messages orginate from a single component
+* Keep component small
+* Make sure operational responsibilities are not all assigned to just a few components
+* Make sure operational responsibilities are consistent with data responsibilities
+* Abstract tasks in multi-level
+* Have components delegate as many low-level tasks as possible
+* Avoid interactions that require each component to send many messages
+
+
+h2. OO 职责与职责分配
+
+
+在面向对象的系统中是由多个对象组成的，这些对象必需能够向其它对象发送消息或操作，这就是对象的交互和职责分配
+
+职责是什么？
+职责是从需求来的，由体系结构加工后，处理得到
+
+职责分配注意什么？
+职责分配是为了满足需求，模块化，信息隐藏，GRASP
+
+h2. GRASP 模式（或其中之一）（理解）
+
+GRASP, General Responsibility Assignment Software Pattern. These are not 'design patterns', rather fundamental principles of object design. GRASP focus on one of the most aspects of object design, assigning responsibilities to classes
+
+h3. GRASP patterns:
+
+* Low Coupling
+* High Cohesion
+* Expert
+* Creator
+* Controller
+* Pure Fabrication
+* Indirection
+* Protected Variations
+* Polymorphism
+
+h3. Low Coupling:
+
+* Problem: To support low dependency and incresed reuse
+* Solution: Assign responsibilities so that coupling remains low
+* Coupling Types ???
+
+h3. High Cohesion:
+
+* Problem: To keep complexity manageable
+* Solution: Assign responsibilities so that cohesion remains high
+* Cohesion Types ???
+
+h3. Expert:
+
+* Problem: What is the most basic principle by which responsibilities are assigned in object-oriented design?
+* Solution: Assign a responsibility to the class that has the information necessary to fulfill the responsibility.
+* Maintain encapsulation of information  
+  Promotes low coupling  
+  Promotes high cohesive class  
+  Can cause a class to become exessively complex
+
+h3. Creator:
+
+* Problem: Assign responsibility for creating a new instance of some class?
+* Solution: Determine which class should create instances of a class based on the relationship between potential creator classes and the class to be instantiated.
+* Who is responsibility to create an object?
+  By creator, assign class B responsibility of creating instance of class A if
+  ** B aggregates A objects
+  ** B contains A objects
+  ** B records instances of A objects
+  ** B closely uses A objects
+  ** B has the initializing data for creating A objects
+* where there is a choice, prefer B aggregates or contains A objects
+* Promotes low coupling by making instances of a class responsible for creating objects they need to reference
+* By creating the objects themselves, they avoid being dependent on another class to create the object for them
+
+h3. Controller:
+
+* Problem: To assign responsibility for handling a system event ? 
+* Solution: If a program receive events from external sources other than its graphical interface, add an event class to decouple the event source(s) from the objects that actually handle the events.
+* Four choices
+  ** The business or overall organization (a façade controller).
+  ** The overall "system" (a façade controller).
+  ** An animate thing in the domain that would perform the work (a role controller).
+  ** An artificial class (Pure Fabrication representing the use (a use case controller)).
+* Care more about the responsibilities and requirements
+* Using a controller object keeps external event sources and internal event handlers independent of each other’ type and behavior
+* The controller objects can become highly coupled and uncohesive with more responsiblities
+
+h3. Polymorphism:
+
+* Problem: To handle alternatives based on types?
+* Solution: When alternate behaviors are selected based on the type of an object, use polymorphic method call to select the behavior, rather than using if statement to test the type.
+
+h3. Pure Fabrication
+
+* Problem: To not violate High Cohesion and Low Coupling?
+* Solution: Assign a highly cohesive set of responsibilities to an artificial class that does not represent anything in the problem domain, in order to support high cohesion, low coupling, and reuse.
+* High cohesion is supported because responsibilities are factored into a class that only focuses on a very specific set of related tasks.
+* Reuse potential may be increased because
+of the presence of fine grained Pure Fabrication classes.
+* Typical Scenarios:
+  ** Separating representation from model
+  ** Separating platforms(facilities) from model 
+  ** Separating complex behavior
+  ** Separating complex data structure
+
+h3. Indirection:
+
+* Problem: To avoid direct coupling? Mainly because _changability_! To de-couple objects so that Low coupling is supported and reuse potential remains high?
+* Solution: Assign the responsibility to an intermediate object to mediate between other components or services, so that they are not directly coupled.
+* Example:
+  ** Pipe/Event/Share Data Styles
+  ** Adapter Pattern
+  ** Proxy Pattern
+  ** Broker Pattern
+  ** Delegator Pattern
+  ** Mediator Pattern
+  ** Publish-Subscribe or Observer pattern
+
+h3. Protected Variation
+
+* Problem: How to design objects, subsystems, and systems so that the variations or instability in these elements does not have an undesirable impact on other elements?
+* Solution: Identify points of predicted variation or instability; assign responsibilities to create a stable interface around them.
+* Examples:
+  ** Information Hiding
+  ** Data driven(configuration files)
+  ** Service lookup(runtime registration)
+  ** Interpreter-Driven(feneralize module)
+  ** Reflective or Meta-Level Designs(Component replace)
+  ** Uniform Access(adherence to protocols)
+  ** LSP(polymorphism)
+  ** Law of Demeter(restrict communication paths)
+
+h3. Rule of thumb
+
+* When there are alternative design choices take a closer look at the cohesion and coupling implications of the alternatives and possibly a the future evolution pressures on the alternatives. Choose an alternative with good cohesion, coupling and stability.
+

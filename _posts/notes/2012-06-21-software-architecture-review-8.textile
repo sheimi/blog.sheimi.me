@@ -1,0 +1,175 @@
+---
+layout: post
+title: 软件架构复习笔记(7) -- 体系结构
+category: note 
+published: true 
+home: no
+meta:
+  location: NJU 
+tags: [architecture, review, note]
+---
+
+h2. 为什么需要有体系结构的设计（高层设计）
+
+h3. 详细设计的不足
+
+* 关注点偏差（载体失配）
+  ** 程序语言无法描述整理的质量要求
+* 无法实现佳偶信息本地化（信息隐藏的局限性）
+  ** 单词匹配的需求是模块见必须依赖与对方的接口
+* 无法有效抽象部件的整体特性（无法描述Module itself）
+* 接口的定义缺乏结构性
+  ** 模块的众多接口之间太独立了
+  ** 无法实现区别对待
+* 不能有效适应大型软件开发的特殊开发方法
+  ** 复用与单词匹配
+  ** 多语言/多泛型与联合编译
+  ** 遗留资产与Module Inside使用
+
+h3. Programming in the large 的特点
+
+* 载体复杂度过大：过于依赖单词匹配的导入导出关系
+* 导入导出并不适合整体结构设计
+* ...
+
+h2. 体系结构设计
+
+the set of principal design decision about the system
+
+h3. 组成部分
+
+* Components: computation and state
+* Connector: relation among components (deserve to be first-class)
+* Configuration
+
+h3. 注意点
+
+* Components should be independent
+* Connectors should be independent
+* Relations among components are not fixed
+
+h3. 体系结构设计的关注点
+
+* Qualities of the system
+  ** availability
+  ** modifiability
+  ** performance
+  ** security
+  ** testability
+  ** usability
+* Project Environments
+  ** Develop Environments
+  ** Business Environments
+  ** Technology Environments
+* Business Goals
+
+h3. Why architectural design decisions are important and difficult?
+* Design decisions are cross cutting and intertwined:
+  ** the design decision information is fragmented across various parts of the design, making it hard to find and change the decisions.
+* Design rules and constraints are violated:
+  ** designers can easily violate design rules and constraints arising
+from previously taken design decisions
+  ** lead to architectural drift and its associated problems
+* Obsolete design decisions are not removed
+  ** In the current design practice removing design decisions is avoided, because of the effort needed, and the unexpected effects this removing can have on the system.
+
+
+h2. Software Architecture Description
+
+h3. 4 + 1 View
+
+"传送门":http://blog.sheimi.me/note/2012/06/18/software-architecture-review-1.html
+
+h3. Logic to Process
+
+* Inside-out: from Logic structure
+  ** define agent tasks
+  ** Objects executed on that same agent
+  ** several classes that need to be executed in mutual exclusion
+* Outside-in: from physical structure
+  ** identify external stimuli (requests) to the system
+  ** define client and servers processes
+  ** define the right set of servers,and allocate objects to the client and servers agents
+
+h3. Logic to Development
+
+* very close, but not the same
+* A Component is usually implemented as a module. Large one are decomposed into multiple packages
+* Grouping to subsystems based on:
+  * ...
+
+h2. Strategies and Tactics (Ch5)
+
+h3. Availability Tactics
+
+* Fault detection
+  ** Ping echo
+  ** Heartbeat
+  ** Exception
+* Recovery preparation and repair
+  ** Voting
+  ** Active redundancy (hot restart)
+  ** Passive redundancy (warm restart/dual redundancy/...)
+  ** Spare
+* Recovery reintroduction
+  ** Shadow
+  ** State resynchronization
+  ** Rollback
+* Prevention
+  ** Removal from service
+  ** Transactions
+  ** Process monitor
+
+h3. Modifiability Tactics
+
+"传送门":http://blog.sheimi.me/note/2012/06/20/software-architecture-review-6.html
+
+* Separate configure data
+* Separate hardware-specific component
+* Separate time-critical component
+* Separate domain model from interfaces
+* Separate domain model from technologies 
+* Separate monitor from function
+* Separate error resume from core logic
+* Separate external interface adapter
+
+h3. Performance Tactics
+
+* Resource Demand
+  ** Increase computation efficiency
+  ** reduce computational overhead
+  ** Manage event rate
+  ** Control frequency of sampling
+* Resource Management
+  ** Introduce concurrency
+  ** Maintain multiple copies
+  ** Increase available resources
+* Resource Abstraction
+  ** Sheduling policy
+
+h3. Security Tactics
+
+* Resisting Attacks
+  ** Authenticate Users
+  ** Authorize Users
+  ** Maintain data confidentiality
+  ** Maintain Integrity
+  ** Limit Exposure
+  ** Limit Access
+* Detecting Attacks
+  ** Intrusion detection
+* Recorvering from an Attack
+  * Restoration --> availability
+  * Identification --> Audit trail
+
+h3. Testability Tactics
+
+* Manage input/output
+  ** Recored/Payback
+  ** Separate interface from implementation
+  ** Specialized access routines/interfaces
+* Internal Monitoring --> Built-in monitors
+
+h2. 体系结构风格
+
+"传送门":http://blog.sheimi.me/note/2012/06/19/software-architecture-review-3.html 

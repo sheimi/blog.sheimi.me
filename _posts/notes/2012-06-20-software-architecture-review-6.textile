@@ -1,0 +1,126 @@
+---
+layout: post
+title: 软件架构复习笔记(5) -- 设计模式
+category: note 
+published: true 
+home: no
+meta:
+  location: NJU 
+tags: [architecture, review, note]
+---
+
+h2. 普通 Programming to Interface 有哪些手段？集合类型 PTI 有那些手段
+
+普通：
+* 模块化
+* 信息隐藏
+普通情况下的Programming to Interface最需要的是低耦合（即基于方法调用的耦合：控制耦合、印记耦合和数据耦合），进一步需要信息隐藏（通过方法表现外部行为，同时隐藏内部实现）
+
+集合类型：
+* Iterator Pattern
+* Proxy Pattern
+* Prototype Pattern?
+
+h2. OCP 有那些手段（提示：不只是继承）
+
+Be open for extension: module's behavior can be extended
+Be close for modification: source code for the module must not be changes
+
+* Aggregation
+* Dynamic Binding: Polymorphism
+* Runtime registration: Event Style
+* Startup binding: Configration files
+* Load Binding: Component replacement
+* Adherence to defined protocals
+
+无论是哪一种绑定，或者什么，都必须在设计或使用的时候遵循某一种接口或者是规范。
+
+h3. Modifiability Tactics
+
+Loclaize change:
+* Semantic coherence
+* Anticipate expected change
+* Generalize module
+* Limit possible option
+* Abstract common service
+
+Prevention of ripple effect
+* Hide information
+* Maintain existing interface
+* Restrict communication paths
+* Use an intermediary
+
+Defer binding time:
+* Runtime registration
+* Configuration files
+* Polymorphism
+* Component replacement
+* Adherence to defined protocals
+
+h2. 一个模块的信息隐藏有哪两种基本类型，各自有哪些处理手段？
+
+两种决策类型：
+* 需求：即一个模块的接口功能与模块内部程序细节的分离
+  ** 给出功能接口，隐藏功能实现程序的细节
+  ** basic secrete: external behavior VS internal implementation
+  ** hides the implementation of an important design decision
+  ** Especially if there is a list of all possible design changes is made - hiding assumption list
+  ** all design decisions are independent of each other
+  ** 使用facade
+  ** 使用controller
+  ** 都是增加一个中间的东西来是接口和内部细节分离
+* 变化：将要发生变化的程序部分需要进行一个决策
+  ** 给出需要修改部分的接口，隐藏待修改部分的实现程序细节
+  ** additional secrets: changes
+  ** You then separate each design secret by assigning it to its own class, subroutine, or other design unit.
+  ** Next you isolate (encapsulate) each secret so that if it does change, the change doesn’t affect the rest of the program.
+  ** strategy pattern / state pattern / bridge pattern
+
+h2. 共性，可变性
+
+实现共性与可变性有哪些手段？对给定的场景，给出共性与可变性的设计方案，将继承和聚合搞好
+手段：聚合，继承（多态）
+
+
+h2. 在解决De-Coupling时，常常使用哪些Indirection的手段？
+
+提示：对给定场景给出Indirection的解决方案（从常见模式来考虑）
+
+* Avoiding Repetition: DO it Once
+* DIP defining a interface in a module that a separate module intends to implement is fundamental way to break dependencies and reduce coupling
+* Indirection
+
+patterns:
+* Facade
+* Proxy
+* Adapter
+* Bridge ?
+* Delegator 
+* Mediator 
+* Observer
+
+h2. MVC与分层方式的区别（要具体到实现）
+
+* 分层的方式主要有两点：
+  ** 禁止下层调用上层
+  ** 禁止跨层调用
+  ** 也就是说每一层的代码中只可以 import 它下层的东西
+  ** 下层返回上层的时候只能是普通的 Value Object 或者是值传递
+* 而 MVC 这三个东西互相都有关系：
+  ** M 拥有 V 的引用，当 M 发生变化的时候需要通知V，这个应用是 V 自己注册给 M 的
+  ** V 拥有 M 的引用，V 先提前注册感兴趣的 M，当 M 发生变化通知 V 时，V 向 M 获取更新数据（只可以使用，不可以修改）
+  ** V 拥有 C 的引用，当用户发起事件的时候，V 把事件传递给相应的 C
+  ** C 拥有 M 和 V 的引用，它有两个作用：1）根据 V 传递的用户事件，交给相应的 M 进行处理，起到转发的作用，2）选择相应的 View 进行显示
+* 因此可以看出：
+  ** 分层需要遵守严格的规定，MVC 也有其相应的风格规定
+  ** MVC 中 V 需要在 M 中注册，VM 之间需要有回调的关系
+  ** MVC 三者之间的关系比分层更为紧密
+  ** 分层可以有 2 ～ n 层，MVC 只能有3个部分
+
+h2. 对象的创建有哪些常见的解决方法
+
+提示：这里要求常见解决方法，不是设计模式
+
+* 高内聚 coupling pattern
+* 低耦合 cohension pattern
+* 创建者（聚合，包含） creator pattern

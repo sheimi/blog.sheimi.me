@@ -1,0 +1,91 @@
+---
+layout: post
+title: 软件架构复习笔记(6) -- 模块化
+category: note 
+published: true 
+home: no
+meta:
+  location: NJU 
+tags: [architecture, review, note]
+---
+
+h2. Pinciples
+
+# Global Vriables Consider Harmful
+# To be explicit
+# Do not Repeat
+# Programming to Interface
+# Get Specified, Design by Contract(Suffered Interface: Specified vs Required Interface: Used)
+
+
+h2. Coupling
+
+# Content Coupling
+# Common Coupling: Global Value
+# Modification Coupling: Do not Repeat
+# Control Coupling: pass data and control elements
+# Stamp Coupling: pass data more than necessary
+# Data Coupling: passing data
+
+h3. Reduce coupling
+
+Encapsulation reduce coupling: Data encapsulation
+* Subdividing the potential shared elements into groups
+* Limiting each group access to the smallest possible subset of modules
+
+Connections that address or refer to a module as a whole by its name yield lower coupling than connections referring to the internal elements of another module(Programming to interface)
+
+h2. Cohesion
+
+# Coincidental: No Binding
+# Logical: Binding by logical similarity
+# Temporal: Binding by logical similarity + time
+# Communicational: Binding by the same data
+# Sequential: Binding by the same problem
+# Functional: Binding by the same goal
+# information
+
+
+h2. OO Coupling
+
+# Component coupling
+# Inheritance Coupling
+# Message passing coupling(keep it low)
+# Data abstraction coupling(keep it low)
+# Module coupling(keep it low)
+
+h3. Component coupling
+* Whole variable: Aggregation(Global)
+* Parameter: Method parameter(Local) 
+* Creator: Creator in some mehod's local
+* Hidden: Given by another object (worst:implicit)
+
+The law of demeter
+* You can play with yourself
+* You can play with your own toy but you can't take them apert
+* You can play with toys that were given to you
+* You can play with toys you've made yourself
+
+h3. Inheritance Coupling
+
+* Modification (Implicit, Harm)
+* Refinement (Necessary)
+* Extension (LSP)
+
+h2. OO Cohesion
+
+# Procedural Cohesion
+# Single Abstraction Cohesion (to achieve a common purpose)
+
+h3. Cohesion of Attribute
+* Separable
+* Multifaceted
+* Non-delegated
+* Concealed
+* Model: informational strength
+
+h3. The best objects
+
+* Information cohesion (maintain consistent state)
+* Functional cohesion (one goal, one responsibility)
+* Information Hiding (one reason to change)
