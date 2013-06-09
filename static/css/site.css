@@ -21,6 +21,7 @@ body .header .contact-header{text-align:center;list-style:none;}body .header .co
 .main-content .site-main h3{font-size:1.3em;font-weight:300;}
 .main-content .site-main h1,.main-content .site-main h2,.main-content .site-main h3,.main-content .site-main h4,.main-content .site-main h5,.main-content .site-main h6{color:#777777;}.main-content .site-main h1 a,.main-content .site-main h2 a,.main-content .site-main h3 a,.main-content .site-main h4 a,.main-content .site-main h5 a,.main-content .site-main h6 a{color:#999999;}.main-content .site-main h1 a:visited,.main-content .site-main h2 a:visited,.main-content .site-main h3 a:visited,.main-content .site-main h4 a:visited,.main-content .site-main h5 a:visited,.main-content .site-main h6 a:visited{color:#999999;}
 .main-content .site-main h1 a:hover,.main-content .site-main h2 a:hover,.main-content .site-main h3 a:hover,.main-content .site-main h4 a:hover,.main-content .site-main h5 a:hover,.main-content .site-main h6 a:hover{color:#777777;}
+.post p{line-height:1.8em;}
 .post div.highlight pre{background-color:#fafafa;-webkit-border-radius:0px;-moz-border-radius:0px;border-radius:0px;}
 .post .meta{float:right;right:-20px;top:-5px;background-color:#f0f0f0;padding:3px;position:relative;color:#999999;-webkit-border-radius:0 0 0 2px;-moz-border-radius:0 0 0 2px;border-radius:0 0 0 2px;}.post .meta span{margin:0 5px;font-size:12px;}
 .post .content{color:#555555;font-size:1.1em;}.post .content p,.post .content li,.post .content ul{font-size:1em;margin-top:5px;}
