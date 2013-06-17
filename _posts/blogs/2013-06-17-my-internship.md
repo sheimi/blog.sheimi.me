@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "我的实习"
+title: "我的实习总结"
 category: blog
 meta:
   location: NJU
 tags:
-  - intern
+  - internship
   - summary
 ---
 
