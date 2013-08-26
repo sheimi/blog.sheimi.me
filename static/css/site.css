@@ -34,7 +34,8 @@ body .header .contact-header{text-align:center;list-style:none;}body .header .co
 .footer a{color:#8085C1;}.footer a:visited{color:#8085C1;}
 .footer .rss{margin-top:1.1em;}.footer .rss img{height:5.5em;border:0;}
 .footer p{margin:1em 0;}
-@media (max-width:767px){body{margin-top:80px;} #github-flag,.contact-header,.footer{display:none;}}
+@media (max-width:767px){body{margin-top:80px;} #github-flag,.contact-header,.footer{display:none;}}.ads-on-blogsheimime-text-only{width:320px;height:50px;display:block;margin-left:auto;margin-right:auto;}
+@media (min-width:500px){.ads-on-blogsheimime-text-only{width:468px;height:60px;}}@media (min-width:767px){.ads-on-blogsheimime-text-only{width:600px;height:70px;}}@media (min-width:800px){.ads-on-blogsheimime-text-only{width:728px;height:90px;}}
 @charset "UTF-8";
 @font-face{font-family:'fontello';src:url('/static/fonts/fontello.eot');src:url('/static/fonts/fontello.eot?#iefix') format('embedded-opentype'),url('/static/fonts/fontello.woff') format('woff'),url('/static/fonts/fontello.ttf') format('truetype'),url('/static/fonts/fontello.svg#fontello') format('svg');font-weight:normal;font-style:normal;}[class^="icon-"],[class*=" icon-"]{font-family:fontello;font-style:normal;speak:none;display:inline-block;width:1.1em;margin-right:.1em;text-align:center;}
 .the-icons li{font-size:14px;line-height:24px;height:24px;}
