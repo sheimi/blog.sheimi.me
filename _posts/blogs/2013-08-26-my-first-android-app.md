@@ -35,6 +35,8 @@ To Do List
 > * commit and push changed files
 > * commit graph
 
+Github repo: [https://github.com/sheimi/SGit](https://github.com/sheimi/SGit)
+
 最后给个链接做个广告，欢迎提交Bug Report ~~~
 
 <a href="https://play.google.com/store/apps/details?id=me.sheimi.sgit"><img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" /></a>
