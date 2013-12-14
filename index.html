@@ -17,7 +17,9 @@ title: Sheimi's Hive
           <h1><a href="{{post.url}}" class="inner-link">{{ post.title }}</a></h1>
           <hr>
           {{ post.content | truncatehtml: 300 }}
-          <span class="read-rest"><a href="{{post.url}}" class="inner-link">Read the rest of this post »</a></span>
+          <div class="read-rest">
+            <a href="{{post.url}}" class="inner-link">Read the rest of this post &raquo;</a>
+          </div>
         </article>
       </li>
     {% endif %}
