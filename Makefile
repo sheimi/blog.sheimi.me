@@ -1,5 +1,5 @@
 run: compile
-	jekyll --server
+	jekyll server
 
 compile:
 	lessc --compress static/less/site.less > static/css/site.css

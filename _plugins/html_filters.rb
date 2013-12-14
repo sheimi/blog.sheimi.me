@@ -3,11 +3,11 @@ require 'rubygems'
 require 'nokogiri'
 require 'iconv'
 
-module Liquid
-  module StandardFilters
+module Jekyll
+  module TruncateHTMLFilter
     
     def truncatehtml(raw, max_length = 15, continuation_string = "...")
-     doc = Nokogiri::HTML(Iconv.conv('UTF8//TRANSLIT//IGNORE', 'UTF8', raw)) 
+     doc = Nokogiri::HTML.fragment(raw.encode('UTF-8', :invalid => :replace, :undef => :replace, :replace => ''))
       current_length = 0;
       deleting = false
       to_delete = []
@@ -31,7 +31,8 @@ module Liquid
       end
   
       to_delete.map(&:remove)
-      doc.children.children.inner_html
+  
+      doc.inner_html
     end
     
   private
@@ -65,3 +66,5 @@ module Liquid
       
   end
 end
+
+Liquid::Template.register_filter(Jekyll::TruncateHTMLFilter)
