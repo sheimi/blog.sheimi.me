@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Android开发和iOS开发的不同的"
+title: "Android开发和iOS开发的不同"
 category: blog
 meta:
   location: UCSD
