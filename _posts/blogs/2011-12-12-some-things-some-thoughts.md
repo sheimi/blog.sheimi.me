@@ -3,7 +3,7 @@ layout: post
 title: 一些事，一些思考
 category: blog
 meta:
-  location: NJU 
+  location: NJU
 tags:
   - thinking
   - school life
@@ -33,10 +33,10 @@ tags:
 这篇文章中讲了一个程序员对自己今年的总结，我十分羡慕这里面所说的生活。在这一年的时间里，他过的那么的充实，那么的快乐。他在文章的最后这样写道：
 
     The peculiar thing about programmers is that they're the one profession
-    that can easily work remotely and travel, and yet they're the one 
-    profession that doesn't. Of course there are exceptions, but on my 
-    travels I didn't meet another programmer doing anything similar; a sad 
-    state of affairs. My message to fellow programmers is stop making 
+    that can easily work remotely and travel, and yet they're the one
+    profession that doesn't. Of course there are exceptions, but on my
+    travels I didn't meet another programmer doing anything similar; a sad
+    state of affairs. My message to fellow programmers is stop making
     excuses, man up and do it. You only live once, and I guarantee that you
      will have the time of your life.
 
@@ -72,4 +72,3 @@ GRE
 ---
 
 我发现我一直在逃避GRE，我不敢面对它。尤其是最近，我一直把它的优先级设的比较低。可是我为什么要逃避，为什么不敢去面对它。我想，我是时候该拿起勇气了，希望能够如愿吧。
-
