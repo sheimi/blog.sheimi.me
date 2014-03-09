@@ -1,14 +1,12 @@
 THIS IS MY PERSONAL BLOG ([blog.sheimi.me](https://blog.sheimi.me))
 =================================================================
 
-This blog is forked from [mojombo.github.com](https://github.com/mojombo/mojombo.github.com)
+This blog is designed and built mainly by sheimi. Inspired by
+[simplecorp](http://demo.s5themes.com/?theme=simplecorp) theme.
 
-License
--------
-The following directories and their contents are Copyright Sheimi.
 You may not reuse anything therein without my permission:
 
-* _posts/
+* \_posts/
 * images/
 
-All other directories and files are MIT Licensed. Feel free to use the HTML and CSS as you please.
+The template are [GPLv3](http://www.gnu.org/licenses/gpl-3.0.html) Licensed.
