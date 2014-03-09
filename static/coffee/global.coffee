@@ -6,7 +6,7 @@ $(document).ready () ->
   $('img[alt="content image"]').each (index, value) ->
     $(this).addClass 'img-polaroid'
 
-  $(document).on 'click', '.header', (e) -> $('html, body').animate scrollTop: 0
+  # $(document).on 'click', '.header', (e) -> $('html, body').animate scrollTop: 0
 
   $(window).on 'resize', (e) ->
     windowResize()
