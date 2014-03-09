@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>{{ page.title }}</title>
   <meta name="author" content="{{ site.owner.name }}" />
@@ -7,29 +7,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
   <!-- Homepage CSS -->
   <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css" media="screen, projection" />
-  <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css" type="text/css" media="screen, projection" />
-  <link rel="stylesheet" href="/static/css/site.css" type="text/css" media="screen, projection" />
-  <script src="/static/js/jquery-1.7.1.min.js"></script>
-  <script src="/static/js/jquery.easing.1.3.js"></script>
-  <script src="/static/js/bootstrap.min.js"></script>
+  <link rel="stylesheet"
+        href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/site.css">
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <script src="/static/js/modernizr.js"></script>
 </head>
 <body>
-  <header class="header">
-    <div class="header-container-wrapper">
+  <div class="container main-content">
+    <header class="header">
       <div class="container">
         <div class="row">
-          <div id="title" class="span3">
-            <a href="/" title="Home" class="inner-link">{{ site.name }}</a>
+          <div id="title" class="col-sm-5">
+            <a href="/" title="Home">{{ site.name }}</a>
           </div>
-          <div id="navigate" class="span6 clearfix">
-            <a href="/" class="inner-link">Home</a>
-            <a href="/archives" class="inner-link">Archives</a>
-            <a href="http://projects.sheimi.me" target="_blank">Projects</a>
-            <a href="/archives/tags.html" class="inner-link">Tags Cloud</a>
+          <div class="col-sm-7">
+            <div id="navigate" class="clearfix">
+              <a href="/">Home</a>
+              <a href="/archives">Archives</a>
+              <a href="http://projects.sheimi.me" target="_blank">Projects</a>
+              <a href="/archives/tags.html">Tags Cloud</a>
+            </div>
           </div>
-          <div class="span3 contact-header">
+        </div>
+      </div>
+      <div class="header-img">
+        <img src="/static/images/header.png" alt="Header Image">
+      </div>
+    </header>
+    <section class="site-main">
+      <div class="row">
+        <div class="site-main-inner col-sm-9">
+          {{ content }}
+        </div>
+        <div class="col-sm-3 sider">
+          <div class="contact">
             <a class="bs-tooltip" data-toggle="tooltip"
               data-placement="bottom" data-original-title="Mail to me"
               href="mailto:{{ site.owner.email }}" target="_blank">
@@ -57,62 +70,53 @@
               <i class="icon-rss-alt"></i>
             </a>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="container sdw"></div>
-  </header>
-  <section class="container main-content">
-    <div class="row">
-      <section class="site-main span10 offset1">
-        <div class="site-main-inner">
-          {{ content }}
-        </div>
-      </section>
-    </div>
-  </section>
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="span10 offset1">
-          <div class="row">
-            <section class="contact span3">
-              <p>
-                Sheimi | Student of <br>
-                <a href="http://www.nju.edu.cn/" target="_blank">Nanjing University</a><br>
-                <a href="http://software.nju.edu.cn/" target="_blank">Software Institute</a><br>
-              </p>
-            </section>
-            <section class="contact span3 c2">
-              <p>
-                Github:  <a href="https://github.com/{{ site.owner.github }}/"
-                  target="_blank">github.com/{{ site.owner.github }}</a><br>
-                Twitter: <a href="http://twitter.com/{{ site.owner.twitter }}/"
-                  target="_blank">@{{ site.owner.twitter }}</a><br>
-                Email:   <a href="mailto:{{ site.owner.email }}"
-                  target="_blank">{{ site.owner.email }}</a><br>
-              </p>
-            </section>
-            <section class="copyleft span3 offset1">
-              <p>
-              Copyright &copy; <a href="{{ site.url }}"
-                target="_blank">{{ site.name }}</a><br>
-                Forked from <a
-                  href="https://github.com/mojombo/mojombo.github.com"
-                  target="_blank">mojombo.github.com</a><br>
-                Modified by Sheimi <br>
-              </p>
-            </section>
+          <div class="gcse-search"></div>
+          <div class="recent-posts">
+            <h2>Recent Posts:</h2>
+            <ul>
+            {% for post in site.posts offset: 0 limit: 5  %}
+              <li class="recent-post">
+                <a href="{{post.url}}">&raquo; &nbsp;{{ post.title }}</a>
+              </li>
+            {% endfor %}
+            </ul>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Some Add-Ons -->
-  </footer>
+    </section>
+    <footer class="footer">
+      <div class="container">
+        <p>
+          Designed and built mainly by {{ site.owner.name }}.
+          Referred
+          <a href="http://demo.s5themes.com/?theme=simplecorp" target="_blank">simplecorp</a>
+          theme.
+          Powered by
+          <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>.
+        </p>
+        <p>
+          Posts are copyright &copy; <a href="{{ site.url }}">{{ site.name }}</a>.
+          The template are
+          <a href="http://www.gnu.org/licenses/gpl-3.0.html" target="_blank">GPLv3</a>
+          Licensed.
+        </p>
+      </div>
+      <!-- Some Add-Ons -->
+    </footer>
+  </div>
 
   <script src="/static/js/global.js"></script>
   <script type="text/javascript">
-
+  (function() {
+    var cx = '013771839325570011739:ex-mxxjy4ni';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', '{{ site.ga }}']);
   _gaq.push(['_trackPageview']);
