@@ -86,6 +86,9 @@ ul {
   @transition: all 0.3s ease-in-out;
   .transition(@transition);
 }
+.gcse-search-wrapper {
+  padding-left: 40px;
+}
 body {
   .header {
     #title {
@@ -119,8 +122,8 @@ body {
   }
 }
 .contact {
-  text-align: center;
   list-style: none;
+  margin-top: 10px;
   a {
     padding: 8px 3px;
     display: inline-block;
@@ -141,6 +144,7 @@ body {
   .box-shadow(@box-shadow);
   .site-main {
     padding: 20px;
+    padding-top: 0;
     .archives h1 {
       text-align: center;
     }
@@ -264,7 +268,7 @@ body {
       }
     }
   }
-  .sider {
+  .sider, .search {
     display: none;
   }
 }
@@ -290,5 +294,14 @@ body {
       width: 114px;
       margin-left: 35px;
     }
+  }
+}
+
+.search {
+  border-bottom: solid 1px #eee;
+  input {
+    -webkit-box-sizing: content-box;
+       -moz-box-sizing: content-box;
+            box-sizing: content-box;
   }
 }
