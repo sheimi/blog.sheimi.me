@@ -24,7 +24,7 @@ Features
 > * search from local repositories
 > * private keys management
 > * manually choose code's language
-> * git diff between commits (to be enhanced)* 
+> * git diff between commits (to be enhanced)*
 
 To Do List
 ---------------

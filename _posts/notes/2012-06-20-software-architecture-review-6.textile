@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 软件架构复习笔记(5) -- 设计模式
-category: note 
-published: true 
+category: note
+published: true
 home: no
 meta:
-  location: NJU 
+  location: NJU
 tags: [architecture, review, note]
 ---
 
@@ -95,8 +95,8 @@ patterns:
 * Proxy
 * Adapter
 * Bridge ?
-* Delegator 
-* Mediator 
+* Delegator
+* Mediator
 * Observer
 
 h2. MVC与分层方式的区别（要具体到实现）

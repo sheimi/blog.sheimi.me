@@ -27,7 +27,7 @@ Alphabets and Words
 Language and Operations
 
 * <math>&Sigma;^*</math> is an infinite set while every word in <math>&Sigma;^*</math> is finite
-* &lambda; is in <math>&Sigma;^*</math> and if x is in <math>&Sigma;^*</math> , then ax is in <math>&Sigma;^*</math> , for all a in &Sigma; 
+* &lambda; is in <math>&Sigma;^*</math> and if x is in <math>&Sigma;^*</math> , then ax is in <math>&Sigma;^*</math> , for all a in &Sigma;
 * A language L over &Sigma;, <math>&Sigma;^*</math> &supe; L
 * {&lambda;} is a language over every alphabet
 
@@ -40,7 +40,7 @@ Language expression over &Sigma;
 * For all alphabets &Sigma;, <math>&Sigma^*</math> is enumerable
 * <math>E_&Sigma;</math> is enumerable
 * <math>L_&Sigma;</math> is enumerable
-* <math>L_&Sigma; &sub; 2^&Sigma;^*</math> 
+* <math>L_&Sigma; &sub; 2^&Sigma;^*</math>
 
 DFA, A deterministic finite automaton, M = (Q, &Sigma;, &delta;, s, F)
 
@@ -48,7 +48,7 @@ DFA, A deterministic finite automaton, M = (Q, &Sigma;, &delta;, s, F)
 * &Sigma; is an alphabet of input symbols
 * &delta; is a transition function : Q &times; &Sigma; -> Q
 * s in Q is the start state
-* F, Q &supe; F is a set of final states 
+* F, Q &supe; F is a set of final states
 
 DFA initialization:
 
@@ -60,4 +60,3 @@ DFA initialization:
 DFA configuration ~~~
 
 PS: 上了第一节课，恶心到我了 >__< !!~~~
-

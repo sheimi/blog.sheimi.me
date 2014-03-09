@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 软件架构复习笔记(1) -- 名词解释
-category: note 
-published: true 
+category: note
+published: true
 home: no
 meta:
-  location: NJU 
+  location: NJU
 tags: [architecture, review, note]
 ---
 
@@ -29,21 +29,21 @@ h2. 设计的5个准则
 
 h2. 4+1 View
 
-Logic View: 
+Logic View:
 * the object model of the design (when an oo design method is used)
 * system is decomposed into a set of key abstractions, taken objects or object classes
 * {Component, connector, configuration}
 * viewer: End-users
 * considers: functional requirements(what the system should provide in terms of services to its users)
 
-Process View: 
+Process View:
 * to capture the concurrency and synchronization aspects of the design
 * process: a grouping of tasks that form an executable unit
 * viewer: Integrators
 * considers: non-functional requirements(concurrency, performance, scalability)
 * multiple level of abstractions, a logical network of processes at the highest level
 
-Development View: 
+Development View:
 * basis of a line of product, subsystem decomposition
 * to describe the static organization of the software in its development environment
 * represented by module and subsystem diagrams
@@ -65,9 +65,9 @@ Scenarios
 
 h2. OO 协作与协作设计（理解）
 
-h3. What's Collaboration  
-  
-An application can be broken down into a set of many different behaviors. 
+h3. What's Collaboration
+
+An application can be broken down into a set of many different behaviors.
 Each such behavior is implemented by a distinct collaboration between the objects of the application
 *_Every collaboration, no matter how small or large, always implements a behavior of the application_*
 
@@ -86,7 +86,7 @@ Design collaboration(of system behaviors: control structures):
   ** Dispersed: Logics of a system behavior is spread widely through the objects network
   ** Centralized: One extra controller record all logics of a system behavior
 * Control Styles: _Dispersed_, _Centralized_, _Delegated_
-* Centralized Control: 
+* Centralized Control:
   ** Easy to find where the decision are made
   ** Easy to see how decision are made and to alter the decision-making process
   ** Controllers may become bloated (large, complex and hard to understand, maintain, test)
@@ -159,9 +159,9 @@ h3. Expert:
 
 * Problem: What is the most basic principle by which responsibilities are assigned in object-oriented design?
 * Solution: Assign a responsibility to the class that has the information necessary to fulfill the responsibility.
-* Maintain encapsulation of information  
-  Promotes low coupling  
-  Promotes high cohesive class  
+* Maintain encapsulation of information
+  Promotes low coupling
+  Promotes high cohesive class
   Can cause a class to become exessively complex
 
 h3. Creator:
@@ -181,7 +181,7 @@ h3. Creator:
 
 h3. Controller:
 
-* Problem: To assign responsibility for handling a system event ? 
+* Problem: To assign responsibility for handling a system event ?
 * Solution: If a program receive events from external sources other than its graphical interface, add an event class to decouple the event source(s) from the objects that actually handle the events.
 * Four choices
   ** The business or overall organization (a façade controller).
@@ -206,7 +206,7 @@ h3. Pure Fabrication
 of the presence of fine grained Pure Fabrication classes.
 * Typical Scenarios:
   ** Separating representation from model
-  ** Separating platforms(facilities) from model 
+  ** Separating platforms(facilities) from model
   ** Separating complex behavior
   ** Separating complex data structure
 
@@ -240,4 +240,3 @@ h3. Protected Variation
 h3. Rule of thumb
 
 * When there are alternative design choices take a closer look at the cohesion and coupling implications of the alternatives and possibly a the future evolution pressures on the alternatives. Choose an alternative with good cohesion, coupling and stability.
-

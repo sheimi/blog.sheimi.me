@@ -5,7 +5,7 @@ category: blog
 meta:
   location: UCSD
 tags:
-  - Software Engineering
+  - Software_Engineering
   - Android
   - iOS  
 ---

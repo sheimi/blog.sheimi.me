@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 软件架构复习笔记(4) -- 设计模式思考题(2)
-category: note 
+category: note
 home: no
-published: true 
+published: true
 meta:
-  location: NJU 
+  location: NJU
 tags: [architecture, review, note]
 ---
 
@@ -13,8 +13,8 @@ h2. Common and Variation
 
 h3. 使用Bridge Pattern实现一个画图程序的主体 框架
 
-* 图形：点、线、矩形、圆... 
-* 线形：实线、虚线、双线... 
+* 图形：点、线、矩形、圆...
+* 线形：实线、虚线、双线...
 * 线粗细：1x、2x、4x
 * 颜色：RGB
 
@@ -53,7 +53,7 @@ h3. 用 observer 编写程序
   ** View1:显示ID+name
   ** View2:显示ID+birthday
   ** View3:修改student的三个列
-* View1~2为observer,model为subject 
+* View1~2为observer,model为subject
   ** 实现每次view3中实现修改后
   ** View1~2自动更新
 
@@ -68,7 +68,7 @@ h3. 以singleton为基础,编写程序解决上述问题(Limited instance permit
 import java.util.*;
 public class Limiton {
   private static int limit = 3;
-  private static Limiton[] instances = new Limiton[3]; 
+  private static Limiton[] instances = new Limiton[3];
   private static Random r = new Random();
   static {
     for (int i = 0; i < limit; i++) {
@@ -92,7 +92,7 @@ import java.util.*;
 public class Limiton {
   private static int limit = 3;
   private static class LimitonHolder {
-    private static Limiton[] instances = new Limiton[3]; 
+    private static Limiton[] instances = new Limiton[3];
     static {
       for (int i = 0; i < limit; i++) {
         instances[i] = new Limiton();
@@ -119,7 +119,3 @@ h3. 如果有多个其他类实例的创建类型都需要子类来决定怎么�
 h3. 如果多个其他类实例之间存在类型依赖该怎么办?
 
 如果类的种类（抽象类）的个数是确定的、不会轻易改变(也就是 Product 的种类是相对稳定的)，并且类的依赖呈现 product family，那使用 Abstract Factory
-
-
-
-

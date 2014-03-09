@@ -108,7 +108,7 @@ JNIEXPORT jbyteArray JNICALL Java_CVJNI_toBMP (JNIEnv * env, jclass jc, jbyteArr
   //convert format
   Mat image = imdecode(imageSourceV, CV_LOAD_IMAGE_COLOR);
   vector<unsigned char> imageDesV;
-  imencode(".bmp", image, imageDesV); 
+  imencode(".bmp", image, imageDesV);
 
   //convert vector<char> to jbyteArray
   jbyte* result_e = new jbyte[imageDesV.size()];
@@ -149,7 +149,7 @@ SRC=cvjni.cpp
 
 FLAGS= -m64 -shared -fPIC
 all:
-  $(CC) $(FLAGS) $(SRC) $(SEARCH_LIB) -o $(OUT) $(INCLUDE) 
+  $(CC) $(FLAGS) $(SRC) $(SEARCH_LIB) -o $(OUT) $(INCLUDE)
 
 {% endhighlight %}
 
@@ -185,5 +185,3 @@ OpenJDK 毕竟不是官方的 JDK 版本，在使用jni的时候，下面一句�
 ----
 
 总的感觉是 JNI 真的不是那么好用，不像 Python 和 C 那么亲密无间，有个专门的包用来编译写的 C extension。还有就是以后能用官方的 JDK 就用官方的，非官方版本的万一出了什么问题，到网上查也不一定能够查到想要的答案。
-
-

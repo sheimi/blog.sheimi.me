@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 软件架构复习笔记(7) -- 体系结构
-category: note 
-published: true 
+category: note
+published: true
 home: no
 meta:
-  location: NJU 
+  location: NJU
 tags: [architecture, review, note]
 ---
 
@@ -128,7 +128,7 @@ h3. Modifiability Tactics
 * Separate hardware-specific component
 * Separate time-critical component
 * Separate domain model from interfaces
-* Separate domain model from technologies 
+* Separate domain model from technologies
 * Separate monitor from function
 * Separate error resume from core logic
 * Separate external interface adapter
@@ -172,4 +172,4 @@ h3. Testability Tactics
 
 h2. 体系结构风格
 
-"传送门":http://blog.sheimi.me/note/2012/06/19/software-architecture-review-3.html 
+"传送门":http://blog.sheimi.me/note/2012/06/19/software-architecture-review-3.html

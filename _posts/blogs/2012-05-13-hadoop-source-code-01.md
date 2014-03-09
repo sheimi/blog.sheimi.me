@@ -4,11 +4,11 @@ title: 源代码阅读笔记（1） --- nutch 的结构
 category: blog
 published: true
 meta:
-  location: NJU 
+  location: NJU
 tags:
   - hadoop
   - study
-  - source code
+  - source_code
   - architecture
   - nutch
 ---
@@ -90,7 +90,7 @@ if (solrUrl != null) {
   // index, dedup & merge
   FileStatus[] fstats = fs.listStatus(segments, HadoopFSUtil.getPassDirectoriesFilter(fs));
   SolrIndexer indexer = new SolrIndexer(getConf());
-  indexer.indexSolr(solrUrl, crawlDb, linkDb, 
+  indexer.indexSolr(solrUrl, crawlDb, linkDb,
     Arrays.asList(HadoopFSUtil.getPaths(fstats)));
   SolrDeleteDuplicates dedup = new SolrDeleteDuplicates();
   dedup.setConf(getConf());
@@ -103,4 +103,3 @@ if (solrUrl != null) {
 值得一提的是，nutch 对文件系统的操作使用的是 hadoop 的 FileSystem 接口，这个接口把文件系统给封装了起来，只要通过修改配置文件就可以决定 nutch 使用的是本地文件系统，还是一个 HDFS 这样的分布式文件系统。
 
 今天就写到这里啦，To be Continued ~~~~
-

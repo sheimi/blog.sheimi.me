@@ -1,11 +1,11 @@
 ---
 layout: post
 title: 软件架构复习笔记(4) -- 设计模式思考题(1)
-category: note 
+category: note
 home: no
-published: true 
+published: true
 meta:
-  location: NJU 
+  location: NJU
 tags: [architecture, review, note]
 ---
 
@@ -251,7 +251,7 @@ h3. 题目：比较 facade 与 controller 的异同
 
 h3. 题目：在策略模式中, 为什么使用“聚合”而不是 “关联”关系?
 
-聚合可以说是一种比较强的关联，聚合指出在对象 A 中需要有 B 的应用，而关联仅仅是一种使用关系。由于关联没有规定 A 中有B的引用，那么如果 策略模式使用关联来实现，那么就无法解决综合使用多个策略的问题，它要么使用一个策略，要么策略的个数是确定的。 
+聚合可以说是一种比较强的关联，聚合指出在对象 A 中需要有 B 的应用，而关联仅仅是一种使用关系。由于关联没有规定 A 中有B的引用，那么如果 策略模式使用关联来实现，那么就无法解决综合使用多个策略的问题，它要么使用一个策略，要么策略的个数是确定的。
 
 策略模式相比，如果 context 不包含 strategy 就语义上出问题了，因为 strategy 是从 context 中分割出来的，应该是 context 的一部分。
 
@@ -282,7 +282,7 @@ The Strategy pattern is really about having a different implementation that acco
 The State pattern is about doing different things based on the state, while leaving the caller releaved from the burden of accommodating every possible state. So for example you might have a getStatus() method that will return different statuses based on the state of the object, but the caller of the method doesn't have to be coded differently to account for each potential state.
 
 
-h4. "1 of N" or "M of N"? 
+h4. "1 of N" or "M of N"?
 
 strategy M of N, state 通常是 1 of N ，但是在并发的情况下是 M of N
 

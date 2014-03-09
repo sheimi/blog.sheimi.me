@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  第一次使用jni，把jni打包到jar中 
+title:  第一次使用jni，把jni打包到jar中
 category: blog
 tags:
   - study
@@ -56,7 +56,7 @@ Java_HelloJNI_showMessage(JNIEnv * env, jclass classObject, jstring valueObject)
 }
 {% endhighlight %}
 
-然后把hellojni.h编译成为动态库   
+然后把hellojni.h编译成为动态库
 gcc -m32 -shared -fPIC hellojni.c -o libhellojni.so -I$JAVA_HOME/include -IJAVA_HOME/include/linux
 
 一开始运行的时候总是报错，需要把环境变量改一下   export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
@@ -72,7 +72,7 @@ gcc -m32 -shared -fPIC hellojni.c -o libhellojni.so -I$JAVA_HOME/include -IJAVA_
 static {
   try {
     Class c = HelloJNI.class;
-    URL location = 
+    URL location =
       c.getProtectionDomain().getCodeSource().getLocation();
     ZipFile zf = new ZipFile(location.getPath());
     // libhellojni.so is put in the lib folder
@@ -93,6 +93,3 @@ static {
 }
 
 {% endhighlight %}
-
-
-
