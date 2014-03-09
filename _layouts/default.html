@@ -10,20 +10,21 @@
   <link rel="stylesheet"
         href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="/static/css/site.css">
+  <link rel="apple-touch-icon-precomposed" href="/static/images/profile.png">
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <script src="/static/js/modernizr.js"></script>
 </head>
 <body>
   <div class="container main-content">
-    <header class="header">
-      <div class="container">
+    <header>
+      <div class="container sm-header">
         <div class="row">
           <div id="title" class="col-sm-5">
-            <a href="/" title="Home">{{ site.name }}</a>
+            <h1><a href="/" title="Home">{{ site.name }}</a></h1>
           </div>
           <div class="col-sm-7">
-            <div id="navigate" class="clearfix">
+            <div class="navigate clearfix">
               <a href="/">Home</a>
               <a href="/archives">Archives</a>
               <a href="http://projects.sheimi.me" target="_blank">Projects</a>
@@ -33,46 +34,57 @@
         </div>
       </div>
       <div class="header-img">
-        <img src="/static/images/header.png" alt="Header Image">
-      </div>
-    </header>
-    <section class="search">
-      <div class="row">
-        <div class="content">
-          <div class="gcse-search-wrapper col-sm-7 col-sm-offset-2">
-            <div class="gcse-search"></div>
-          </div>
-          <div class="contact col-sm-3">
-            <a class="bs-tooltip" data-toggle="tooltip"
-              data-placement="bottom" data-original-title="Mail to me"
-              href="mailto:{{ site.owner.email }}" target="_blank">
-              <i class="icon-mail"></i>
-            </a>
-            <a class="bs-tooltip" data-toggle="tooltip"
-              data-placement="bottom" data-original-title="Github Profile"
-              href="https://github.com/{{ site.owner.github }}/" target="_blank">
-              <i class="icon-github"></i>
-            </a>
-            <a class="bs-tooltip" data-toggle="tooltip"
-              data-placement="bottom" data-original-title="Twitter"
-              href="http://twitter.com/{{ site.owner.twitter }}/" target="_blank">
-              <i class="icon-twitter-bird-1"></i>
-            </a>
-            <a class="bs-tooltip" data-toggle="tooltip"
-              data-placement="bottom" data-original-title="Google+ Profile"
-              href="https://plus.google.com/{{ site.owner.google_plus }}/about/"
-              target="_blank">
-              <i class="icon-googleplus-rect"></i>
-            </a>
-            <a class="bs-tooltip" data-toggle="tooltip"
-              data-placement="bottom" data-original-title="Rss Feed"
-              href="/atom.xml" target="_blank">
-              <i class="icon-rss-alt"></i>
+        <div class="profile-img-wrapper row">
+          <div class="profile-img">
+            <a href="#" class="thumbnail">
+              <img src="/static/images/profile.png" alt="profile">
             </a>
           </div>
         </div>
+        <h1 id="large-title">
+          <a href="/" title="Home">{{ site.name }}</a>
+        </h1>
+        <div class="row contact">
+          <a class="bs-tooltip" data-toggle="tooltip"
+            data-placement="bottom" data-original-title="Mail to me"
+            href="mailto:{{ site.owner.email }}" target="_blank">
+            <i class="icon-mail"></i>
+          </a>
+          <a class="bs-tooltip" data-toggle="tooltip"
+            data-placement="bottom" data-original-title="Github Profile"
+            href="https://github.com/{{ site.owner.github }}/" target="_blank">
+            <i class="icon-github"></i>
+          </a>
+          <a class="bs-tooltip" data-toggle="tooltip"
+            data-placement="bottom" data-original-title="Twitter"
+            href="http://twitter.com/{{ site.owner.twitter }}/" target="_blank">
+            <i class="icon-twitter-bird-1"></i>
+          </a>
+          <a class="bs-tooltip" data-toggle="tooltip"
+            data-placement="bottom" data-original-title="Google+ Profile"
+            href="https://plus.google.com/{{ site.owner.google_plus }}/about/"
+            target="_blank">
+            <i class="icon-googleplus-rect"></i>
+          </a>
+          <a class="bs-tooltip" data-toggle="tooltip"
+            data-placement="bottom" data-original-title="Rss Feed"
+            href="/atom.xml" target="_blank">
+            <i class="icon-rss-alt"></i>
+          </a>
+        </div>
+        <div class="nav-search-wrapper clearfix">
+          <div class="navigate clearfix col-sm-6">
+            <a href="/">Home</a>
+            <a href="/archives">Archives</a>
+            <a href="http://projects.sheimi.me" target="_blank">Projects</a>
+            <a href="/archives/tags.html">Tags Cloud</a>
+          </div>
+          <div class="search col-sm-6">
+            <div class="gcse-search"></div>
+          </div>
+        </div>
       </div>
-    </section>
+    </header>
     <section class="site-main">
       <div class="row">
         <div class="site-main-inner col-sm-9">
