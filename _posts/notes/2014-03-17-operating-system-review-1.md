@@ -9,6 +9,90 @@ meta:
 tags: [os, paper, review, note]
 ---
 
+Log-Structured File System(Note)
+-------------------------------
+
+* [The Design and Implementation of a Log-Structured File System]("http://portal.acm.org/ft_gateway.cfm?id=121137&type=pdf&coll=Portal&dl=GUIDE&CFID=12705301&CFTOKEN=27549233")
+* write all modification to disk sequentially in a log-like structure
+* log => segments
+  - only structure
+  - contains indexing information
+* write heavy
+* Assumption: 
+  - files are cached in memory 
+  - that increasing memory size will make the caches more and mroe effective at
+    satisfying read requests
+  - disk traffic will become dominated by writes
+* increase performance by eliminating almost all seeks
+* faster crash recovery
+* should ensure there are large extents of free space available for writing new
+  data (challenge) (segments)
+ 
+### Previous design for file systems
+
+* tech and workload
+* Problems
+  - spread information around the disk and cause too many small access
+  - then to write synchronously
+
+### Log-structured file systems
+
+* improve performance by buffering a sequence of file system changes in the file
+  cache and then writing all the changes to disk sequentially
+* two key issue
+  - how to retrieve information from log
+  - how to manage the free space on disk
+
+#### File location and reading (retrieve information from log)
+
+* basic structure is identical to Unix FFS: inode ...
+* will not place inodes at fixed position. (are written to the log)
+* inode map to maintain current location of each inode
+  - (active region) cached in memory and rarely require disk access.
+
+#### Free space management: segments
+
+* when log reach the end of disk, the free space will have been fragmented into
+  many small extents
+* Two choice: threading and copying
+  - leave the live data in place and thread the log through the free space
+    (make free space more fragmented)
+  - copy live data out of log in order to leave large free extends for writing
+    + disadv: its cost
+* combined threading and copying : segments
+* segments always written sequentially from beginning to its end
+* log is threaded on a segment-by-segment basis (size: 512KB)
+
+##### Segment cleaning mechanism
+
+* copying live data out of a segment
+* Three step (merge and clean segments):
+  - read a number of segments into memory
+  - identify live data
+  - read live data back to a smaller number of clean segments
+* When cleaning
+  - identify which blocks of each segment are live
+  - identify the file to which each block belongs and position of block within
+    the file
+* Solved by write a segment summary block
+  - used when cleaning
+  - use to distinguish live blocks from deleted or overwrittend
+
+##### Segment cleaning policies
+
+* Four issues
+  - when should executed? (no specific, a threshold value)
+  - how many segments should it clean at a time (no specific)
+  - which segments shoud be cleand?  
+  - How should the live blocks be grouped when they are writtend out?
+
+##### Crash recovery
+
+* locations of the last disk operations are easy to determine (the end of log)
+* use two-pronged approach to recover
+  - checkpoints:  define consistent state of the file system
+  - roll-forward: recover information written since the last checkpoint
+
 Soft Updates (Note)
 -------------------
 
